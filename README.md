@@ -1,1 +1,1 @@
-# WG Dashboard APplication
+# WG Dashboard Application
