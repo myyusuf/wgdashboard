@@ -19,5 +19,9 @@
     "mysql": "^2.9.0",
     "sequelize": "^3.9.0",
     "vhost": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
   }
 }
