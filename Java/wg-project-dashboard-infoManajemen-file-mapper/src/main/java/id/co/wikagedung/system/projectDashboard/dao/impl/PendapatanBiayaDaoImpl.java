@@ -13,59 +13,59 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import id.co.wikagedung.system.projectDashboard.dao.BiayaLangsungDao;
-import id.co.wikagedung.system.projectDashboard.model.BiayaLangsung;
+import id.co.wikagedung.system.projectDashboard.dao.PendapatanBiayaDao;
+import id.co.wikagedung.system.projectDashboard.model.PendapatanBiaya;
 
-public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
+public class PendapatanBiayaDaoImpl implements PendapatanBiayaDao {
 
 	private static final Logger LOGGER = Logger
-			.getLogger(BiayaLangsungDaoImpl.class);
+			.getLogger(PendapatanBiayaDaoImpl.class);
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-	public BiayaLangsungDaoImpl(DataSource dataSource) {
+	public PendapatanBiayaDaoImpl(DataSource dataSource) {
 		namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 
-	private RowMapper<BiayaLangsung> BIAYA_LANGSUNG_ROW_MAPPER = new RowMapper<BiayaLangsung>() {
+	private RowMapper<PendapatanBiaya> PENDAPATAN_BIAYA_ROW_MAPPER = new RowMapper<PendapatanBiaya>() {
 
-		public BiayaLangsung mapRow(ResultSet resultSet, int rowNumber)
+		public PendapatanBiaya mapRow(ResultSet resultSet, int rowNumber)
 				throws SQLException {
 
-			BiayaLangsung biayaLangsung = new BiayaLangsung();
-			biayaLangsung.setId(resultSet.getString("id"));
-			biayaLangsung.setNamaProyek(resultSet.getString("nama_proyek"));
-			biayaLangsung.setPeriode(resultSet.getString("periode"));
-			biayaLangsung.setRkpAwal(resultSet.getInt("rkp_awal"));
-			biayaLangsung.setRencanaSampaiBulanIni(resultSet
+			PendapatanBiaya pendapatanBiaya = new PendapatanBiaya();
+			pendapatanBiaya.setId(resultSet.getString("id"));
+			pendapatanBiaya.setNamaProyek(resultSet.getString("nama_proyek"));
+			pendapatanBiaya.setPeriode(resultSet.getString("periode"));
+			pendapatanBiaya.setRkpAwal(resultSet.getInt("rkp_awal"));
+			pendapatanBiaya.setRencanaSampaiBulanIni(resultSet
 					.getInt("rencana_sampai_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanLalu(resultSet
+			pendapatanBiaya.setRealisasiSampaiBulanLalu(resultSet
 					.getInt("realisasi_sampai_bulan_lalu"));
-			biayaLangsung.setRealisasiBulanIni(resultSet
+			pendapatanBiaya.setRealisasiBulanIni(resultSet
 					.getInt("realisasi_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanIni(resultSet
+			pendapatanBiaya.setRealisasiSampaiBulanIni(resultSet
 					.getInt("realisasi_sampai_bulan_ini"));
-			biayaLangsung.setProyeksi(resultSet.getInt("proyeksi"));
+			pendapatanBiaya.setProyeksi(resultSet.getInt("proyeksi"));
 
-			return biayaLangsung;
+			return pendapatanBiaya;
 
 		}
 	};
 
-	public void insertBiayaLangsung(BiayaLangsung biayaLangsung) {
+	public void insertPendapatanBiaya(PendapatanBiaya pendapatanBiaya) {
 
-		String id = biayaLangsung.getId();
-		String namaProyek = biayaLangsung.getNamaProyek();
-		String periode = biayaLangsung.getPeriode();
-		Integer rkpAwal = biayaLangsung.getRkpAwal();
-		Integer rencanaSampaiBulanIni = biayaLangsung
+		String id = pendapatanBiaya.getId();
+		String namaProyek = pendapatanBiaya.getNamaProyek();
+		String periode = pendapatanBiaya.getPeriode();
+		Integer rkpAwal = pendapatanBiaya.getRkpAwal();
+		Integer rencanaSampaiBulanIni = pendapatanBiaya
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = biayaLangsung
+		Integer realisasiSampaiBulanLalu = pendapatanBiaya
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = biayaLangsung.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = biayaLangsung
+		Integer realisasiBulanIni = pendapatanBiaya.getRealisasiBulanIni();
+		Integer realisasiSampaiBulanIni = pendapatanBiaya
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = biayaLangsung.getProyeksi();
+		Integer proyeksi = pendapatanBiaya.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
@@ -82,7 +82,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 				realisasiSampaiBulanIni, Types.INTEGER);
 		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
 
-		String sql = "INSERT INTO wg_informasi_manajemen_biaya_langsung (id, nama_proyek, "
+		String sql = "INSERT INTO wg_informasi_manajemen_pendapatan_biaya (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
 				+ "proyeksi) VALUES (:id, :namaProyek, :periode, :rkpAwal, "
@@ -92,27 +92,27 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 		try {
 			namedParameterJdbcTemplate.update(sql, mapSqlParameterSource);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error inserting data into database on insertBiayaLangsung : "
+			LOGGER.error("Error inserting data into database on insertPendapatanBiaya : "
 					+ e);
 		}
 
 	}
 
-	public List<BiayaLangsung> getAllBiayaLangsung() {
+	public List<PendapatanBiaya> getAllPendapatanBiaya() {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung";
+				+ "proyeksi  FROM wg_informasi_manajemen_pendapatan_biaya";
 
-		List<BiayaLangsung> resultList = null;
+		List<PendapatanBiaya> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PENDAPATAN_BIAYA_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getAllBiayaLangsung : "
+			LOGGER.error("Error getting data from database on getAllPendapatanBiaya : "
 					+ e);
 		}
 
@@ -120,7 +120,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByNamaProyekAndPeriode(
+	public List<PendapatanBiaya> getPendapatanBiayaByNamaProyekAndPeriode(
 			String namaProyek, String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
@@ -129,16 +129,16 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE "
+				+ "proyeksi  FROM wg_informasi_manajemen_pendapatan_biaya WHERE "
 				+ "nama_proyek = :namaProyek AND periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<PendapatanBiaya> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PENDAPATAN_BIAYA_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByNamaProyekAndPeriode : "
+			LOGGER.error("Error getting data from database on getPendapatanBiayaByNamaProyekAndPeriode : "
 					+ e);
 		}
 
@@ -146,22 +146,22 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByPeriode(String periode) {
+	public List<PendapatanBiaya> getPendapatanBiayaByPeriode(String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE periode = :periode";
+				+ "proyeksi  FROM wg_informasi_manajemen_pendapatan_biaya WHERE periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<PendapatanBiaya> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PENDAPATAN_BIAYA_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByPeriode : "
+			LOGGER.error("Error getting data from database on getPendapatanBiayaByPeriode : "
 					+ e);
 		}
 

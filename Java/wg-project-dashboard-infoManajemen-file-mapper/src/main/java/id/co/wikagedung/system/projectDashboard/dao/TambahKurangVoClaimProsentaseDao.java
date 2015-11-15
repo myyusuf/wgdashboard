@@ -1,20 +1,20 @@
 package id.co.wikagedung.system.projectDashboard.dao;
 
-import id.co.wikagedung.system.projectDashboard.model.TambahKurangVoClaimProsentase;
+import id.co.wikagedung.system.projectDashboard.model.TambahKurangVoClaimPenjualanProsentase;
 
 import java.util.List;
 
 public interface TambahKurangVoClaimProsentaseDao {
 
 	void insertTambahKurangVoClaimProsentase(
-			TambahKurangVoClaimProsentase tambahKurangVoClaimProsentase);
+			TambahKurangVoClaimPenjualanProsentase tambahKurangVoClaimProsentase);
 
-	List<TambahKurangVoClaimProsentase> getAllTambahKurangVoClaimProsentase();
+	List<TambahKurangVoClaimPenjualanProsentase> getAllTambahKurangVoClaimProsentase();
 
-	List<TambahKurangVoClaimProsentase> getTambahKurangVoClaimProsentaseByNamaProyekAndPeriode(
+	List<TambahKurangVoClaimPenjualanProsentase> getTambahKurangVoClaimProsentaseByNamaProyekAndPeriode(
 			String namaProyek, String periode);
 
-	List<TambahKurangVoClaimProsentase> getTambahKurangVoClaimProsentaseByPeriode(
+	List<TambahKurangVoClaimPenjualanProsentase> getTambahKurangVoClaimProsentaseByPeriode(
 			String periode);
 
 }

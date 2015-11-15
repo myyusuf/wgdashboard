@@ -1,20 +1,20 @@
 package id.co.wikagedung.system.projectDashboard.dao;
 
-import id.co.wikagedung.system.projectDashboard.model.IndukAwalKonstruksiProsentase;
+import id.co.wikagedung.system.projectDashboard.model.IndukAwalKonstruksiPenjualanProsentase;
 
 import java.util.List;
 
 public interface IndukAwalKonstruksiProsentaseDao {
 
 	void insertIndukAwalKonstruksiProsentase(
-			IndukAwalKonstruksiProsentase indukAwalKonstruksiProsentase);
+			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiProsentase);
 
-	List<IndukAwalKonstruksiProsentase> getAllIndukAwalKonstruksiProsentase();
+	List<IndukAwalKonstruksiPenjualanProsentase> getAllIndukAwalKonstruksiProsentase();
 
-	List<IndukAwalKonstruksiProsentase> getIndukAwalKonstruksiProsentaseByNamaProyekAndPeriode(
+	List<IndukAwalKonstruksiPenjualanProsentase> getIndukAwalKonstruksiProsentaseByNamaProyekAndPeriode(
 			String namaProyek, String periode);
 
-	List<IndukAwalKonstruksiProsentase> getIndukAwalKonstruksiProsentaseByPeriode(
+	List<IndukAwalKonstruksiPenjualanProsentase> getIndukAwalKonstruksiProsentaseByPeriode(
 			String periode);
 
 }

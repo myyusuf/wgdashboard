@@ -1,18 +1,18 @@
 package id.co.wikagedung.system.projectDashboard.dao;
 
-import id.co.wikagedung.system.projectDashboard.model.IndukAwalKonstruksi;
+import id.co.wikagedung.system.projectDashboard.model.IndukAwalKonstruksiOmsetKontrak;
 
 import java.util.List;
 
 public interface IndukAwalKonstruksiDao {
 
-	void insertIndukAwalKonstruksi(IndukAwalKonstruksi indukAwalKonstruksi);
+	void insertIndukAwalKonstruksi(IndukAwalKonstruksiOmsetKontrak indukAwalKonstruksi);
 
-	List<IndukAwalKonstruksi> getAllIndukAwalKonstruksi();
+	List<IndukAwalKonstruksiOmsetKontrak> getAllIndukAwalKonstruksi();
 
-	List<IndukAwalKonstruksi> getIndukAwalKonstruksiByNamaProyekAndPeriode(
+	List<IndukAwalKonstruksiOmsetKontrak> getIndukAwalKonstruksiByNamaProyekAndPeriode(
 			String namaProyek, String periode);
 
-	List<IndukAwalKonstruksi> getIndukAwalKonstruksiByPeriode(String periode);
+	List<IndukAwalKonstruksiOmsetKontrak> getIndukAwalKonstruksiByPeriode(String periode);
 
 }

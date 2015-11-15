@@ -13,59 +13,65 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import id.co.wikagedung.system.projectDashboard.dao.BiayaLangsungDao;
-import id.co.wikagedung.system.projectDashboard.model.BiayaLangsung;
+import id.co.wikagedung.system.projectDashboard.dao.ProsentaseTerhadapProduksiDao;
+import id.co.wikagedung.system.projectDashboard.model.ProsentaseTerhadapProduksi;
 
-public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
+public class ProsentaseTerhadapProduksiDaoImpl implements
+		ProsentaseTerhadapProduksiDao {
 
 	private static final Logger LOGGER = Logger
-			.getLogger(BiayaLangsungDaoImpl.class);
+			.getLogger(ProsentaseTerhadapProduksiDaoImpl.class);
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-	public BiayaLangsungDaoImpl(DataSource dataSource) {
+	public ProsentaseTerhadapProduksiDaoImpl(DataSource dataSource) {
 		namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 
-	private RowMapper<BiayaLangsung> BIAYA_LANGSUNG_ROW_MAPPER = new RowMapper<BiayaLangsung>() {
+	private RowMapper<ProsentaseTerhadapProduksi> PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER = new RowMapper<ProsentaseTerhadapProduksi>() {
 
-		public BiayaLangsung mapRow(ResultSet resultSet, int rowNumber)
-				throws SQLException {
+		public ProsentaseTerhadapProduksi mapRow(ResultSet resultSet,
+				int rowNumber) throws SQLException {
 
-			BiayaLangsung biayaLangsung = new BiayaLangsung();
-			biayaLangsung.setId(resultSet.getString("id"));
-			biayaLangsung.setNamaProyek(resultSet.getString("nama_proyek"));
-			biayaLangsung.setPeriode(resultSet.getString("periode"));
-			biayaLangsung.setRkpAwal(resultSet.getInt("rkp_awal"));
-			biayaLangsung.setRencanaSampaiBulanIni(resultSet
+			ProsentaseTerhadapProduksi prosentaseTerhadapProduksi = new ProsentaseTerhadapProduksi();
+			prosentaseTerhadapProduksi.setId(resultSet.getString("id"));
+			prosentaseTerhadapProduksi.setNamaProyek(resultSet
+					.getString("nama_proyek"));
+			prosentaseTerhadapProduksi.setPeriode(resultSet
+					.getString("periode"));
+			prosentaseTerhadapProduksi.setRkpAwal(resultSet.getInt("rkp_awal"));
+			prosentaseTerhadapProduksi.setRencanaSampaiBulanIni(resultSet
 					.getInt("rencana_sampai_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanLalu(resultSet
+			prosentaseTerhadapProduksi.setRealisasiSampaiBulanLalu(resultSet
 					.getInt("realisasi_sampai_bulan_lalu"));
-			biayaLangsung.setRealisasiBulanIni(resultSet
+			prosentaseTerhadapProduksi.setRealisasiBulanIni(resultSet
 					.getInt("realisasi_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanIni(resultSet
+			prosentaseTerhadapProduksi.setRealisasiSampaiBulanIni(resultSet
 					.getInt("realisasi_sampai_bulan_ini"));
-			biayaLangsung.setProyeksi(resultSet.getInt("proyeksi"));
+			prosentaseTerhadapProduksi
+					.setProyeksi(resultSet.getInt("proyeksi"));
 
-			return biayaLangsung;
+			return prosentaseTerhadapProduksi;
 
 		}
 	};
 
-	public void insertBiayaLangsung(BiayaLangsung biayaLangsung) {
+	public void insertProsentaseTerhadapProduksi(
+			ProsentaseTerhadapProduksi prosentaseTerhadapProduksi) {
 
-		String id = biayaLangsung.getId();
-		String namaProyek = biayaLangsung.getNamaProyek();
-		String periode = biayaLangsung.getPeriode();
-		Integer rkpAwal = biayaLangsung.getRkpAwal();
-		Integer rencanaSampaiBulanIni = biayaLangsung
+		String id = prosentaseTerhadapProduksi.getId();
+		String namaProyek = prosentaseTerhadapProduksi.getNamaProyek();
+		String periode = prosentaseTerhadapProduksi.getPeriode();
+		Integer rkpAwal = prosentaseTerhadapProduksi.getRkpAwal();
+		Integer rencanaSampaiBulanIni = prosentaseTerhadapProduksi
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = biayaLangsung
+		Integer realisasiSampaiBulanLalu = prosentaseTerhadapProduksi
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = biayaLangsung.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = biayaLangsung
+		Integer realisasiBulanIni = prosentaseTerhadapProduksi
+				.getRealisasiBulanIni();
+		Integer realisasiSampaiBulanIni = prosentaseTerhadapProduksi
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = biayaLangsung.getProyeksi();
+		Integer proyeksi = prosentaseTerhadapProduksi.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
@@ -82,7 +88,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 				realisasiSampaiBulanIni, Types.INTEGER);
 		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
 
-		String sql = "INSERT INTO wg_informasi_manajemen_biaya_langsung (id, nama_proyek, "
+		String sql = "INSERT INTO wg_informasi_manajemen_prosentase_terhadap_produksi (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
 				+ "proyeksi) VALUES (:id, :namaProyek, :periode, :rkpAwal, "
@@ -92,27 +98,27 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 		try {
 			namedParameterJdbcTemplate.update(sql, mapSqlParameterSource);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error inserting data into database on insertBiayaLangsung : "
+			LOGGER.error("Error inserting data into database on insertProsentaseTerhadapProduksi : "
 					+ e);
 		}
 
 	}
 
-	public List<BiayaLangsung> getAllBiayaLangsung() {
+	public List<ProsentaseTerhadapProduksi> getAllProsentaseTerhadapProduksi() {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung";
+				+ "proyeksi  FROM wg_informasi_manajemen_prosentase_terhadap_produksi";
 
-		List<BiayaLangsung> resultList = null;
+		List<ProsentaseTerhadapProduksi> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getAllBiayaLangsung : "
+			LOGGER.error("Error getting data from database on getAllProsentaseTerhadapProduksi : "
 					+ e);
 		}
 
@@ -120,7 +126,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByNamaProyekAndPeriode(
+	public List<ProsentaseTerhadapProduksi> getProsentaseTerhadapProduksiByNamaProyekAndPeriode(
 			String namaProyek, String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
@@ -129,16 +135,16 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE "
+				+ "proyeksi  FROM wg_informasi_manajemen_prosentase_terhadap_produksi WHERE "
 				+ "nama_proyek = :namaProyek AND periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<ProsentaseTerhadapProduksi> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByNamaProyekAndPeriode : "
+			LOGGER.error("Error getting data from database on getProsentaseTerhadapProduksiByNamaProyekAndPeriode : "
 					+ e);
 		}
 
@@ -146,22 +152,23 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByPeriode(String periode) {
+	public List<ProsentaseTerhadapProduksi> getProsentaseTerhadapProduksiByPeriode(
+			String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE periode = :periode";
+				+ "proyeksi  FROM wg_informasi_manajemen_prosentase_terhadap_produksi WHERE periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<ProsentaseTerhadapProduksi> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByPeriode : "
+			LOGGER.error("Error getting data from database on getProsentaseTerhadapProduksiByPeriode : "
 					+ e);
 		}
 

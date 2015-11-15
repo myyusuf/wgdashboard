@@ -5,22 +5,23 @@ public class OmsetKontrakNetto {
 	private String id;
 	private String namaProyek;
 	private String periode;
-	private IndukAwalKonstruksi indukAwalKonstruksi;
-	private TambahKurangVoClaim tambahKurangVOClaim;
-	private TotalOk totalOK;
+	private IndukAwalKonstruksiOmsetKontrak indukAwalKonstruksiOmsetKontrak;
+	private TambahKurangVoClaimOmsetKontrak tambahKurangVoClaimOmsetKontrak;
+	private TotalOk totalOk;
 
 	public OmsetKontrakNetto() {
 	}
 
 	public OmsetKontrakNetto(String id, String namaProyek, String periode,
-			IndukAwalKonstruksi indukAwalKonstruksi,
-			TambahKurangVoClaim tambahKurangVOClaim, TotalOk totalOK) {
+			IndukAwalKonstruksiOmsetKontrak indukAwalKonstruksiOmsetKontrak,
+			TambahKurangVoClaimOmsetKontrak tambahKurangVoClaimOmsetKontrak,
+			TotalOk totalOk) {
 		this.id = id;
 		this.namaProyek = namaProyek;
 		this.periode = periode;
-		this.indukAwalKonstruksi = indukAwalKonstruksi;
-		this.tambahKurangVOClaim = tambahKurangVOClaim;
-		this.totalOK = totalOK;
+		this.indukAwalKonstruksiOmsetKontrak = indukAwalKonstruksiOmsetKontrak;
+		this.tambahKurangVoClaimOmsetKontrak = tambahKurangVoClaimOmsetKontrak;
+		this.totalOk = totalOk;
 	}
 
 	public String getId() {
@@ -47,36 +48,40 @@ public class OmsetKontrakNetto {
 		this.periode = periode;
 	}
 
-	public IndukAwalKonstruksi getIndukAwalKonstruksi() {
-		return indukAwalKonstruksi;
+	public IndukAwalKonstruksiOmsetKontrak getIndukAwalKonstruksiOmsetKontrak() {
+		return indukAwalKonstruksiOmsetKontrak;
 	}
 
-	public void setIndukAwalKonstruksi(IndukAwalKonstruksi indukAwalKonstruksi) {
-		this.indukAwalKonstruksi = indukAwalKonstruksi;
+	public void setIndukAwalKonstruksiOmsetKontrak(
+			IndukAwalKonstruksiOmsetKontrak indukAwalKonstruksiOmsetKontrak) {
+		this.indukAwalKonstruksiOmsetKontrak = indukAwalKonstruksiOmsetKontrak;
 	}
 
-	public TambahKurangVoClaim getTambahKurangVOClaim() {
-		return tambahKurangVOClaim;
+	public TambahKurangVoClaimOmsetKontrak getTambahKurangVoClaimOmsetKontrak() {
+		return tambahKurangVoClaimOmsetKontrak;
 	}
 
-	public void setTambahKurangVOClaim(TambahKurangVoClaim tambahKurangVOClaim) {
-		this.tambahKurangVOClaim = tambahKurangVOClaim;
+	public void setTambahKurangVoClaimOmsetKontrak(
+			TambahKurangVoClaimOmsetKontrak tambahKurangVoClaimOmsetKontrak) {
+		this.tambahKurangVoClaimOmsetKontrak = tambahKurangVoClaimOmsetKontrak;
 	}
 
-	public TotalOk getTotalOK() {
-		return totalOK;
+	public TotalOk getTotalOk() {
+		return totalOk;
 	}
 
-	public void setTotalOK(TotalOk totalOK) {
-		this.totalOK = totalOK;
+	public void setTotalOk(TotalOk totalOk) {
+		this.totalOk = totalOk;
 	}
 
 	@Override
 	public String toString() {
 		return "OmsetKontrakNetto [id=" + id + ", namaProyek=" + namaProyek
-				+ ", periode=" + periode + ", indukAwalKonstruksi="
-				+ indukAwalKonstruksi + ", tambahKurangVOClaim="
-				+ tambahKurangVOClaim + ", totalOK=" + totalOK + "]";
+				+ ", periode=" + periode + ", indukAwalKonstruksiOmsetKontrak="
+				+ indukAwalKonstruksiOmsetKontrak
+				+ ", tambahKurangVoClaimOmsetKontrak="
+				+ tambahKurangVoClaimOmsetKontrak + ", totalOk=" + totalOk
+				+ "]";
 	}
 
 }

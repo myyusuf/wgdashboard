@@ -5,23 +5,33 @@ public class Penjualan {
 	private String id;
 	private String namaProyek;
 	private String periode;
-	private IndukAwalKonstruksiProsentase indukAwalKonstruksiProsentase;
-	private TambahKurangVoClaimProsentase tambahKurangVOClaimProsentase;
-	private TotalOp totalOP;
+	private IndukAwalKonstruksiPenjualan indukAwalKonstruksiPenjualan;
+	private IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiPenjualanProsentase;
+	private TambahKurangVoClaimPenjualan tambahKurangVoClaimPenjualan;
+	private TambahKurangVoClaimPenjualanProsentase tambahKurangVoClaimPenjualanProsentase;
+	private TotalOp totalOp;
 
 	public Penjualan() {
 	}
 
-	public Penjualan(String id, String namaProyek, String periode,
-			IndukAwalKonstruksiProsentase indukAwalKonstruksiProsentase,
-			TambahKurangVoClaimProsentase tambahKurangVOClaimProsentase,
-			TotalOp totalOP) {
+	public Penjualan(
+			String id,
+			String namaProyek,
+			String periode,
+			IndukAwalKonstruksiPenjualan indukAwalKonstruksiPenjualan,
+			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiPenjualanProsentase,
+			TambahKurangVoClaimPenjualan tambahKurangVoClaimPenjualan,
+			TambahKurangVoClaimPenjualanProsentase tambahKurangVoClaimPenjualanProsentase,
+			TotalOp totalOp) {
+		super();
 		this.id = id;
 		this.namaProyek = namaProyek;
 		this.periode = periode;
-		this.indukAwalKonstruksiProsentase = indukAwalKonstruksiProsentase;
-		this.tambahKurangVOClaimProsentase = tambahKurangVOClaimProsentase;
-		this.totalOP = totalOP;
+		this.indukAwalKonstruksiPenjualan = indukAwalKonstruksiPenjualan;
+		this.indukAwalKonstruksiPenjualanProsentase = indukAwalKonstruksiPenjualanProsentase;
+		this.tambahKurangVoClaimPenjualan = tambahKurangVoClaimPenjualan;
+		this.tambahKurangVoClaimPenjualanProsentase = tambahKurangVoClaimPenjualanProsentase;
+		this.totalOp = totalOp;
 	}
 
 	public String getId() {
@@ -48,39 +58,62 @@ public class Penjualan {
 		this.periode = periode;
 	}
 
-	public IndukAwalKonstruksiProsentase getIndukAwalKonstruksiProsentase() {
-		return indukAwalKonstruksiProsentase;
+	public IndukAwalKonstruksiPenjualan getIndukAwalKonstruksiPenjualan() {
+		return indukAwalKonstruksiPenjualan;
 	}
 
-	public void setIndukAwalKonstruksiProsentase(
-			IndukAwalKonstruksiProsentase indukAwalKonstruksiProsentase) {
-		this.indukAwalKonstruksiProsentase = indukAwalKonstruksiProsentase;
+	public void setIndukAwalKonstruksiPenjualan(
+			IndukAwalKonstruksiPenjualan indukAwalKonstruksiPenjualan) {
+		this.indukAwalKonstruksiPenjualan = indukAwalKonstruksiPenjualan;
 	}
 
-	public TambahKurangVoClaimProsentase getTambahKurangVOClaimProsentase() {
-		return tambahKurangVOClaimProsentase;
+	public IndukAwalKonstruksiPenjualanProsentase getIndukAwalKonstruksiPenjualanProsentase() {
+		return indukAwalKonstruksiPenjualanProsentase;
 	}
 
-	public void setTambahKurangVOClaimProsentase(
-			TambahKurangVoClaimProsentase tambahKurangVOClaimProsentase) {
-		this.tambahKurangVOClaimProsentase = tambahKurangVOClaimProsentase;
+	public void setIndukAwalKonstruksiPenjualanProsentase(
+			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiPenjualanProsentase) {
+		this.indukAwalKonstruksiPenjualanProsentase = indukAwalKonstruksiPenjualanProsentase;
 	}
 
-	public TotalOp getTotalOP() {
-		return totalOP;
+	public TambahKurangVoClaimPenjualan getTambahKurangVoClaimPenjualan() {
+		return tambahKurangVoClaimPenjualan;
 	}
 
-	public void setTotalOP(TotalOp totalOP) {
-		this.totalOP = totalOP;
+	public void setTambahKurangVoClaimPenjualan(
+			TambahKurangVoClaimPenjualan tambahKurangVoClaimPenjualan) {
+		this.tambahKurangVoClaimPenjualan = tambahKurangVoClaimPenjualan;
+	}
+
+	public TambahKurangVoClaimPenjualanProsentase getTambahKurangVoClaimPenjualanProsentase() {
+		return tambahKurangVoClaimPenjualanProsentase;
+	}
+
+	public void setTambahKurangVoClaimPenjualanProsentase(
+			TambahKurangVoClaimPenjualanProsentase tambahKurangVoClaimPenjualanProsentase) {
+		this.tambahKurangVoClaimPenjualanProsentase = tambahKurangVoClaimPenjualanProsentase;
+	}
+
+	public TotalOp getTotalOp() {
+		return totalOp;
+	}
+
+	public void setTotalOp(TotalOp totalOp) {
+		this.totalOp = totalOp;
 	}
 
 	@Override
 	public String toString() {
 		return "Penjualan [id=" + id + ", namaProyek=" + namaProyek
-				+ ", periode=" + periode + ", indukAwalKonstruksiProsentase="
-				+ indukAwalKonstruksiProsentase
-				+ ", tambahKurangVOClaimProsentase="
-				+ tambahKurangVOClaimProsentase + ", totalOP=" + totalOP + "]";
+				+ ", periode=" + periode + ", indukAwalKonstruksiPenjualan="
+				+ indukAwalKonstruksiPenjualan
+				+ ", indukAwalKonstruksiPenjualanProsentase="
+				+ indukAwalKonstruksiPenjualanProsentase
+				+ ", tambahKurangVoClaimPenjualan="
+				+ tambahKurangVoClaimPenjualan
+				+ ", tambahKurangVoClaimPenjualanProsentase="
+				+ tambahKurangVoClaimPenjualanProsentase + ", totalOp="
+				+ totalOp + "]";
 	}
 
 }

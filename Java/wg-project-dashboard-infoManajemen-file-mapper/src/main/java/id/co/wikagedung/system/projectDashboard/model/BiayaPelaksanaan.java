@@ -2,7 +2,6 @@ package id.co.wikagedung.system.projectDashboard.model;
 
 public class BiayaPelaksanaan {
 
-	private String id;
 	private String namaProyek;
 	private String periode;
 	private BiayaLangsung biayaLangsung;
@@ -12,23 +11,14 @@ public class BiayaPelaksanaan {
 	public BiayaPelaksanaan() {
 	}
 
-	public BiayaPelaksanaan(String id, String namaProyek, String periode,
+	public BiayaPelaksanaan(String namaProyek, String periode,
 			BiayaLangsung biayaLangsung, BiayaTakLangsung biayaTakLangsung,
 			TotalBiaya totalBiaya) {
-		this.id = id;
 		this.namaProyek = namaProyek;
 		this.periode = periode;
 		this.biayaLangsung = biayaLangsung;
 		this.biayaTakLangsung = biayaTakLangsung;
 		this.totalBiaya = totalBiaya;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getNamaProyek() {
@@ -73,8 +63,8 @@ public class BiayaPelaksanaan {
 
 	@Override
 	public String toString() {
-		return "BiayaPelaksanaan [id=" + id + ", namaProyek=" + namaProyek
-				+ ", periode=" + periode + ", biayaLangsung=" + biayaLangsung
+		return "BiayaPelaksanaan [namaProyek=" + namaProyek + ", periode="
+				+ periode + ", biayaLangsung=" + biayaLangsung
 				+ ", biayaTakLangsung=" + biayaTakLangsung + ", totalBiaya="
 				+ totalBiaya + "]";
 	}

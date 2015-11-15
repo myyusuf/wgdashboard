@@ -13,59 +13,66 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import id.co.wikagedung.system.projectDashboard.dao.BiayaLangsungDao;
-import id.co.wikagedung.system.projectDashboard.model.BiayaLangsung;
+import id.co.wikagedung.system.projectDashboard.dao.IndukAwalKonstruksiProsentaseDao;
+import id.co.wikagedung.system.projectDashboard.model.IndukAwalKonstruksiPenjualanProsentase;
 
-public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
+public class IndukAwalKonstruksiProsentaseDaoImpl implements
+		IndukAwalKonstruksiProsentaseDao {
 
 	private static final Logger LOGGER = Logger
-			.getLogger(BiayaLangsungDaoImpl.class);
+			.getLogger(IndukAwalKonstruksiProsentaseDaoImpl.class);
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-	public BiayaLangsungDaoImpl(DataSource dataSource) {
+	public IndukAwalKonstruksiProsentaseDaoImpl(DataSource dataSource) {
 		namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 
-	private RowMapper<BiayaLangsung> BIAYA_LANGSUNG_ROW_MAPPER = new RowMapper<BiayaLangsung>() {
+	private RowMapper<IndukAwalKonstruksiPenjualanProsentase> INDUK_AWAL_KONSTRUKSI_PROSENTASE_ROW_MAPPER = new RowMapper<IndukAwalKonstruksiPenjualanProsentase>() {
 
-		public BiayaLangsung mapRow(ResultSet resultSet, int rowNumber)
-				throws SQLException {
+		public IndukAwalKonstruksiPenjualanProsentase mapRow(ResultSet resultSet,
+				int rowNumber) throws SQLException {
 
-			BiayaLangsung biayaLangsung = new BiayaLangsung();
-			biayaLangsung.setId(resultSet.getString("id"));
-			biayaLangsung.setNamaProyek(resultSet.getString("nama_proyek"));
-			biayaLangsung.setPeriode(resultSet.getString("periode"));
-			biayaLangsung.setRkpAwal(resultSet.getInt("rkp_awal"));
-			biayaLangsung.setRencanaSampaiBulanIni(resultSet
+			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiProsentase = new IndukAwalKonstruksiPenjualanProsentase();
+			indukAwalKonstruksiProsentase.setId(resultSet.getString("id"));
+			indukAwalKonstruksiProsentase.setNamaProyek(resultSet
+					.getString("nama_proyek"));
+			indukAwalKonstruksiProsentase.setPeriode(resultSet
+					.getString("periode"));
+			indukAwalKonstruksiProsentase.setRkpAwal(resultSet
+					.getInt("rkp_awal"));
+			indukAwalKonstruksiProsentase.setRencanaSampaiBulanIni(resultSet
 					.getInt("rencana_sampai_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanLalu(resultSet
+			indukAwalKonstruksiProsentase.setRealisasiSampaiBulanLalu(resultSet
 					.getInt("realisasi_sampai_bulan_lalu"));
-			biayaLangsung.setRealisasiBulanIni(resultSet
+			indukAwalKonstruksiProsentase.setRealisasiBulanIni(resultSet
 					.getInt("realisasi_bulan_ini"));
-			biayaLangsung.setRealisasiSampaiBulanIni(resultSet
+			indukAwalKonstruksiProsentase.setRealisasiSampaiBulanIni(resultSet
 					.getInt("realisasi_sampai_bulan_ini"));
-			biayaLangsung.setProyeksi(resultSet.getInt("proyeksi"));
+			indukAwalKonstruksiProsentase.setProyeksi(resultSet
+					.getInt("proyeksi"));
 
-			return biayaLangsung;
+			return indukAwalKonstruksiProsentase;
 
 		}
 	};
 
-	public void insertBiayaLangsung(BiayaLangsung biayaLangsung) {
+	public void insertIndukAwalKonstruksiProsentase(
+			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiProsentase) {
 
-		String id = biayaLangsung.getId();
-		String namaProyek = biayaLangsung.getNamaProyek();
-		String periode = biayaLangsung.getPeriode();
-		Integer rkpAwal = biayaLangsung.getRkpAwal();
-		Integer rencanaSampaiBulanIni = biayaLangsung
+		String id = indukAwalKonstruksiProsentase.getId();
+		String namaProyek = indukAwalKonstruksiProsentase.getNamaProyek();
+		String periode = indukAwalKonstruksiProsentase.getPeriode();
+		Integer rkpAwal = indukAwalKonstruksiProsentase.getRkpAwal();
+		Integer rencanaSampaiBulanIni = indukAwalKonstruksiProsentase
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = biayaLangsung
+		Integer realisasiSampaiBulanLalu = indukAwalKonstruksiProsentase
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = biayaLangsung.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = biayaLangsung
+		Integer realisasiBulanIni = indukAwalKonstruksiProsentase
+				.getRealisasiBulanIni();
+		Integer realisasiSampaiBulanIni = indukAwalKonstruksiProsentase
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = biayaLangsung.getProyeksi();
+		Integer proyeksi = indukAwalKonstruksiProsentase.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
@@ -82,7 +89,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 				realisasiSampaiBulanIni, Types.INTEGER);
 		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
 
-		String sql = "INSERT INTO wg_informasi_manajemen_biaya_langsung (id, nama_proyek, "
+		String sql = "INSERT INTO wg_informasi_manajemen_induk_awal_konstruksi_prosentase (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
 				+ "proyeksi) VALUES (:id, :namaProyek, :periode, :rkpAwal, "
@@ -92,27 +99,28 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 		try {
 			namedParameterJdbcTemplate.update(sql, mapSqlParameterSource);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error inserting data into database on insertBiayaLangsung : "
+			LOGGER.error("Error inserting data into database on insertIndukAwalKonstruksiProsentase : "
 					+ e);
 		}
 
 	}
 
-	public List<BiayaLangsung> getAllBiayaLangsung() {
+	public List<IndukAwalKonstruksiPenjualanProsentase> getAllIndukAwalKonstruksiProsentase() {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung";
+				+ "proyeksi  FROM wg_informasi_manajemen_induk_awal_konstruksi_prosentase";
 
-		List<BiayaLangsung> resultList = null;
+		List<IndukAwalKonstruksiPenjualanProsentase> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource,
+					INDUK_AWAL_KONSTRUKSI_PROSENTASE_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getAllBiayaLangsung : "
+			LOGGER.error("Error getting data from database on getAllIndukAwalKonstruksiProsentase : "
 					+ e);
 		}
 
@@ -120,7 +128,7 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByNamaProyekAndPeriode(
+	public List<IndukAwalKonstruksiPenjualanProsentase> getIndukAwalKonstruksiProsentaseByNamaProyekAndPeriode(
 			String namaProyek, String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
@@ -129,16 +137,17 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE "
+				+ "proyeksi  FROM wg_informasi_manajemen_induk_awal_konstruksi_prosentase WHERE "
 				+ "nama_proyek = :namaProyek AND periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<IndukAwalKonstruksiPenjualanProsentase> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource,
+					INDUK_AWAL_KONSTRUKSI_PROSENTASE_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByNamaProyekAndPeriode : "
+			LOGGER.error("Error getting data from database on getIndukAwalKonstruksiProsentaseByNamaProyekAndPeriode : "
 					+ e);
 		}
 
@@ -146,22 +155,24 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 
 	}
 
-	public List<BiayaLangsung> getBiayaLangsungByPeriode(String periode) {
+	public List<IndukAwalKonstruksiPenjualanProsentase> getIndukAwalKonstruksiProsentaseByPeriode(
+			String periode) {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
 
 		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
 				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
-				+ "proyeksi  FROM wg_informasi_manajemen_biaya_langsung WHERE periode = :periode";
+				+ "proyeksi  FROM wg_informasi_manajemen_induk_awal_konstruksi_prosentase WHERE periode = :periode";
 
-		List<BiayaLangsung> resultList = null;
+		List<IndukAwalKonstruksiPenjualanProsentase> resultList = null;
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, BIAYA_LANGSUNG_ROW_MAPPER);
+					mapSqlParameterSource,
+					INDUK_AWAL_KONSTRUKSI_PROSENTASE_ROW_MAPPER);
 		} catch (DataAccessException e) {
-			LOGGER.error("Error getting data from database on getBiayaLangsungByPeriode : "
+			LOGGER.error("Error getting data from database on getIndukAwalKonstruksiProsentaseByPeriode : "
 					+ e);
 		}
 

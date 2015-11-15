@@ -1,18 +1,18 @@
 package id.co.wikagedung.system.projectDashboard.dao;
 
-import id.co.wikagedung.system.projectDashboard.model.TambahKurangVoClaim;
+import id.co.wikagedung.system.projectDashboard.model.TambahKurangVoClaimOmsetKontrak;
 
 import java.util.List;
 
 public interface TambahKurangVoClaimDao {
 
-	void insertTambahKurangVoClaim(TambahKurangVoClaim tambahKurangVoClaim);
+	void insertTambahKurangVoClaim(TambahKurangVoClaimOmsetKontrak tambahKurangVoClaim);
 
-	List<TambahKurangVoClaim> getAllTambahKurangVoClaim();
+	List<TambahKurangVoClaimOmsetKontrak> getAllTambahKurangVoClaim();
 
-	List<TambahKurangVoClaim> getTambahKurangVoClaimByNamaProyekAndPeriode(
+	List<TambahKurangVoClaimOmsetKontrak> getTambahKurangVoClaimByNamaProyekAndPeriode(
 			String namaProyek, String periode);
 
-	List<TambahKurangVoClaim> getTambahKurangVoClaimByPeriode(String periode);
+	List<TambahKurangVoClaimOmsetKontrak> getTambahKurangVoClaimByPeriode(String periode);
 
 }

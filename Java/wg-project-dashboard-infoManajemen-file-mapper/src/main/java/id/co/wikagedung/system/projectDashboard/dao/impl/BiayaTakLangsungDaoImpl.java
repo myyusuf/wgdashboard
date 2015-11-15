@@ -82,7 +82,12 @@ public class BiayaTakLangsungDaoImpl implements BiayaTakLangsungDao {
 				realisasiSampaiBulanIni, Types.INTEGER);
 		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
 
-		String sql = "";
+		String sql = "INSERT INTO wg_informasi_manajemen_biaya_tak_langsung (id, nama_proyek, "
+				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
+				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
+				+ "proyeksi) VALUES (:id, :namaProyek, :periode, :rkpAwal, "
+				+ ":rencanaSampaiBulanIni, :realisasiSampaiBulanLalu, :realisasiBulanIni, "
+				+ ":realisasiSampaiBulanIni, :proyeksi)";
 
 		try {
 			namedParameterJdbcTemplate.update(sql, mapSqlParameterSource);
@@ -97,7 +102,9 @@ public class BiayaTakLangsungDaoImpl implements BiayaTakLangsungDao {
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
-		String sql = "";
+		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
+				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
+				+ "proyeksi  FROM wg_informasi_manajemen_biaya_tak_langsung";
 
 		List<BiayaTakLangsung> resultList = null;
 
@@ -120,7 +127,10 @@ public class BiayaTakLangsungDaoImpl implements BiayaTakLangsungDao {
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
 
-		String sql = "";
+		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
+				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
+				+ "proyeksi  FROM wg_informasi_manajemen_biaya_tak_langsung WHERE "
+				+ "nama_proyek = :namaProyek AND periode = :periode";
 
 		List<BiayaTakLangsung> resultList = null;
 
@@ -141,7 +151,9 @@ public class BiayaTakLangsungDaoImpl implements BiayaTakLangsungDao {
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
 
-		String sql = "";
+		String sql = "SELECT id, nama_proyek, periode, rkp_awal, rencana_sampai_bulan_ini, "
+				+ "realisasi_sampai_bulan_lalu, realisasi_bulan_ini, realisasi_sampai_bulan_ini, "
+				+ "proyeksi  FROM wg_informasi_manajemen_biaya_tak_langsung WHERE periode = :periode";
 
 		List<BiayaTakLangsung> resultList = null;
 
