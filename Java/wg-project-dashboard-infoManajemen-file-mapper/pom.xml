@@ -19,7 +19,9 @@
 		<commons.file.upload.version>1.3.1</commons.file.upload.version>
 		<servlet.api.version>2.5</servlet.api.version>
 		<jxl.version>2.6</jxl.version>
+		<apache.poi.version>3.13</apache.poi.version>
 		<apache.commons.version>1.2</apache.commons.version>
+		<xml.beans.version>2.3.0</xml.beans.version>
 	</properties>
 
 	<dependencies>
@@ -108,6 +110,29 @@
 			<artifactId>jxl</artifactId>
 			<version>${jxl.version}</version>
 		</dependency>
+		<!-- Apache Poi Dependency -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<!-- XML Beans Depedency -->
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>${xml.beans.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

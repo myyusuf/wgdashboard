@@ -5,20 +5,20 @@ public class TotalBiaya {
 	private String id;
 	private String namaProyek;
 	private String periode;
-	private Integer rkpAwal;
-	private Integer rencanaSampaiBulanIni;
-	private Integer realisasiSampaiBulanLalu;
-	private Integer realisasiBulanIni;
-	private Integer realisasiSampaiBulanIni;
-	private Integer proyeksi;
+	private Double rkpAwal;
+	private Double rencanaSampaiBulanIni;
+	private Double realisasiSampaiBulanLalu;
+	private Double realisasiBulanIni;
+	private Double realisasiSampaiBulanIni;
+	private Double proyeksi;
 
 	public TotalBiaya() {
 	}
 
 	public TotalBiaya(String id, String namaProyek, String periode,
-			Integer rkpAwal, Integer rencanaSampaiBulanIni,
-			Integer realisasiSampaiBulanLalu, Integer realisasiBulanIni,
-			Integer realisasiSampaiBulanIni, Integer proyeksi) {
+			Double rkpAwal, Double rencanaSampaiBulanIni,
+			Double realisasiSampaiBulanLalu, Double realisasiBulanIni,
+			Double realisasiSampaiBulanIni, Double proyeksi) {
 		this.id = id;
 		this.namaProyek = namaProyek;
 		this.periode = periode;
@@ -54,51 +54,51 @@ public class TotalBiaya {
 		this.periode = periode;
 	}
 
-	public Integer getRkpAwal() {
+	public Double getRkpAwal() {
 		return rkpAwal;
 	}
 
-	public void setRkpAwal(Integer rkpAwal) {
+	public void setRkpAwal(Double rkpAwal) {
 		this.rkpAwal = rkpAwal;
 	}
 
-	public Integer getRencanaSampaiBulanIni() {
+	public Double getRencanaSampaiBulanIni() {
 		return rencanaSampaiBulanIni;
 	}
 
-	public void setRencanaSampaiBulanIni(Integer rencanaSampaiBulanIni) {
+	public void setRencanaSampaiBulanIni(Double rencanaSampaiBulanIni) {
 		this.rencanaSampaiBulanIni = rencanaSampaiBulanIni;
 	}
 
-	public Integer getRealisasiSampaiBulanLalu() {
+	public Double getRealisasiSampaiBulanLalu() {
 		return realisasiSampaiBulanLalu;
 	}
 
-	public void setRealisasiSampaiBulanLalu(Integer realisasiSampaiBulanLalu) {
+	public void setRealisasiSampaiBulanLalu(Double realisasiSampaiBulanLalu) {
 		this.realisasiSampaiBulanLalu = realisasiSampaiBulanLalu;
 	}
 
-	public Integer getRealisasiBulanIni() {
+	public Double getRealisasiBulanIni() {
 		return realisasiBulanIni;
 	}
 
-	public void setRealisasiBulanIni(Integer realisasiBulanIni) {
+	public void setRealisasiBulanIni(Double realisasiBulanIni) {
 		this.realisasiBulanIni = realisasiBulanIni;
 	}
 
-	public Integer getRealisasiSampaiBulanIni() {
+	public Double getRealisasiSampaiBulanIni() {
 		return realisasiSampaiBulanIni;
 	}
 
-	public void setRealisasiSampaiBulanIni(Integer realisasiSampaiBulanIni) {
+	public void setRealisasiSampaiBulanIni(Double realisasiSampaiBulanIni) {
 		this.realisasiSampaiBulanIni = realisasiSampaiBulanIni;
 	}
 
-	public Integer getProyeksi() {
+	public Double getProyeksi() {
 		return proyeksi;
 	}
 
-	public void setProyeksi(Integer proyeksi) {
+	public void setProyeksi(Double proyeksi) {
 		this.proyeksi = proyeksi;
 	}
 
