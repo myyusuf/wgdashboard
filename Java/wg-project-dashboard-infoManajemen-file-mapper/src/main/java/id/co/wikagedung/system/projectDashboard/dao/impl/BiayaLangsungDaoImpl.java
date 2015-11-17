@@ -36,16 +36,16 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 			biayaLangsung.setId(resultSet.getString("id"));
 			biayaLangsung.setNamaProyek(resultSet.getString("nama_proyek"));
 			biayaLangsung.setPeriode(resultSet.getString("periode"));
-			biayaLangsung.setRkpAwal(resultSet.getInt("rkp_awal"));
+			biayaLangsung.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			biayaLangsung.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			biayaLangsung.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			biayaLangsung.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			biayaLangsung.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			biayaLangsung.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			biayaLangsung.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return biayaLangsung;
 
@@ -57,30 +57,30 @@ public class BiayaLangsungDaoImpl implements BiayaLangsungDao {
 		String id = biayaLangsung.getId();
 		String namaProyek = biayaLangsung.getNamaProyek();
 		String periode = biayaLangsung.getPeriode();
-		Integer rkpAwal = biayaLangsung.getRkpAwal();
-		Integer rencanaSampaiBulanIni = biayaLangsung
+		Double rkpAwal = biayaLangsung.getRkpAwal();
+		Double rencanaSampaiBulanIni = biayaLangsung
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = biayaLangsung
+		Double realisasiSampaiBulanLalu = biayaLangsung
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = biayaLangsung.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = biayaLangsung
+		Double realisasiBulanIni = biayaLangsung.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = biayaLangsung
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = biayaLangsung.getProyeksi();
+		Double proyeksi = biayaLangsung.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
 				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_biaya_langsung (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

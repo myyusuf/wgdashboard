@@ -36,16 +36,16 @@ public class PersekotDaoImpl implements PersekotDao {
 			persekot.setId(resultSet.getString("id"));
 			persekot.setNamaProyek(resultSet.getString("nama_proyek"));
 			persekot.setPeriode(resultSet.getString("periode"));
-			persekot.setRkpAwal(resultSet.getInt("rkp_awal"));
+			persekot.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			persekot.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			persekot.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			persekot.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			persekot.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			persekot.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			persekot.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return persekot;
 
@@ -57,28 +57,28 @@ public class PersekotDaoImpl implements PersekotDao {
 		String id = persekot.getId();
 		String namaProyek = persekot.getNamaProyek();
 		String periode = persekot.getPeriode();
-		Integer rkpAwal = persekot.getRkpAwal();
-		Integer rencanaSampaiBulanIni = persekot.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = persekot
+		Double rkpAwal = persekot.getRkpAwal();
+		Double rencanaSampaiBulanIni = persekot.getRencanaSampaiBulanIni();
+		Double realisasiSampaiBulanLalu = persekot
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = persekot.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = persekot.getRealisasiSampaiBulanIni();
-		Integer proyeksi = persekot.getProyeksi();
+		Double realisasiBulanIni = persekot.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = persekot.getRealisasiSampaiBulanIni();
+		Double proyeksi = persekot.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_persekot (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

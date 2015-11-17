@@ -36,16 +36,16 @@ public class PenerimaanBersihDaoImpl implements PenerimaanBersihDao {
 			penerimaanBersih.setId(resultSet.getString("id"));
 			penerimaanBersih.setNamaProyek(resultSet.getString("nama_proyek"));
 			penerimaanBersih.setPeriode(resultSet.getString("periode"));
-			penerimaanBersih.setRkpAwal(resultSet.getInt("rkp_awal"));
+			penerimaanBersih.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			penerimaanBersih.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			penerimaanBersih.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			penerimaanBersih.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			penerimaanBersih.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			penerimaanBersih.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			penerimaanBersih.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return penerimaanBersih;
 
@@ -57,30 +57,30 @@ public class PenerimaanBersihDaoImpl implements PenerimaanBersihDao {
 		String id = penerimaanBersih.getId();
 		String namaProyek = penerimaanBersih.getNamaProyek();
 		String periode = penerimaanBersih.getPeriode();
-		Integer rkpAwal = penerimaanBersih.getRkpAwal();
-		Integer rencanaSampaiBulanIni = penerimaanBersih
+		Double rkpAwal = penerimaanBersih.getRkpAwal();
+		Double rencanaSampaiBulanIni = penerimaanBersih
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = penerimaanBersih
+		Double realisasiSampaiBulanLalu = penerimaanBersih
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = penerimaanBersih.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = penerimaanBersih
+		Double realisasiBulanIni = penerimaanBersih.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = penerimaanBersih
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = penerimaanBersih.getProyeksi();
+		Double proyeksi = penerimaanBersih.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_penerimaan_bersih (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

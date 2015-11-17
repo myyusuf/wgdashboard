@@ -29,24 +29,24 @@ public class IndukAwalKonstruksiDaoImpl implements IndukAwalKonstruksiDao {
 
 	private RowMapper<IndukAwalKonstruksiOmsetKontrak> INDUK_AWAL_KONSTRUKSI_ROW_MAPPER = new RowMapper<IndukAwalKonstruksiOmsetKontrak>() {
 
-		public IndukAwalKonstruksiOmsetKontrak mapRow(ResultSet resultSet, int rowNumber)
-				throws SQLException {
+		public IndukAwalKonstruksiOmsetKontrak mapRow(ResultSet resultSet,
+				int rowNumber) throws SQLException {
 
 			IndukAwalKonstruksiOmsetKontrak indukAwalKonstruksi = new IndukAwalKonstruksiOmsetKontrak();
 			indukAwalKonstruksi.setId(resultSet.getString("id"));
 			indukAwalKonstruksi.setNamaProyek(resultSet
 					.getString("nama_proyek"));
 			indukAwalKonstruksi.setPeriode(resultSet.getString("periode"));
-			indukAwalKonstruksi.setRkpAwal(resultSet.getInt("rkp_awal"));
+			indukAwalKonstruksi.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			indukAwalKonstruksi.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			indukAwalKonstruksi.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			indukAwalKonstruksi.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			indukAwalKonstruksi.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			indukAwalKonstruksi.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			indukAwalKonstruksi.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return indukAwalKonstruksi;
 
@@ -59,15 +59,15 @@ public class IndukAwalKonstruksiDaoImpl implements IndukAwalKonstruksiDao {
 		String id = indukAwalKonstruksi.getId();
 		String namaProyek = indukAwalKonstruksi.getNamaProyek();
 		String periode = indukAwalKonstruksi.getPeriode();
-		Integer rkpAwal = indukAwalKonstruksi.getRkpAwal();
-		Integer rencanaSampaiBulanIni = indukAwalKonstruksi
+		Double rkpAwal = indukAwalKonstruksi.getRkpAwal();
+		Double rencanaSampaiBulanIni = indukAwalKonstruksi
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = indukAwalKonstruksi
+		Double realisasiSampaiBulanLalu = indukAwalKonstruksi
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = indukAwalKonstruksi.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = indukAwalKonstruksi
+		Double realisasiBulanIni = indukAwalKonstruksi.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = indukAwalKonstruksi
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = indukAwalKonstruksi.getProyeksi();
+		Double proyeksi = indukAwalKonstruksi.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);

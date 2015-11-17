@@ -36,16 +36,16 @@ public class DroppingDaoImpl implements DroppingDao {
 			dropping.setId(resultSet.getString("id"));
 			dropping.setNamaProyek(resultSet.getString("nama_proyek"));
 			dropping.setPeriode(resultSet.getString("periode"));
-			dropping.setRkpAwal(resultSet.getInt("rkp_awal"));
+			dropping.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			dropping.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			dropping.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			dropping.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			dropping.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			dropping.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			dropping.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return dropping;
 
@@ -57,28 +57,28 @@ public class DroppingDaoImpl implements DroppingDao {
 		String id = dropping.getId();
 		String namaProyek = dropping.getNamaProyek();
 		String periode = dropping.getPeriode();
-		Integer rkpAwal = dropping.getRkpAwal();
-		Integer rencanaSampaiBulanIni = dropping.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = dropping
+		Double rkpAwal = dropping.getRkpAwal();
+		Double rencanaSampaiBulanIni = dropping.getRencanaSampaiBulanIni();
+		Double realisasiSampaiBulanLalu = dropping
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = dropping.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = dropping.getRealisasiSampaiBulanIni();
-		Integer proyeksi = dropping.getProyeksi();
+		Double realisasiBulanIni = dropping.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = dropping.getRealisasiSampaiBulanIni();
+		Double proyeksi = dropping.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_dropping (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

@@ -30,8 +30,8 @@ public class IndukAwalKonstruksiProsentaseDaoImpl implements
 
 	private RowMapper<IndukAwalKonstruksiPenjualanProsentase> INDUK_AWAL_KONSTRUKSI_PROSENTASE_ROW_MAPPER = new RowMapper<IndukAwalKonstruksiPenjualanProsentase>() {
 
-		public IndukAwalKonstruksiPenjualanProsentase mapRow(ResultSet resultSet,
-				int rowNumber) throws SQLException {
+		public IndukAwalKonstruksiPenjualanProsentase mapRow(
+				ResultSet resultSet, int rowNumber) throws SQLException {
 
 			IndukAwalKonstruksiPenjualanProsentase indukAwalKonstruksiProsentase = new IndukAwalKonstruksiPenjualanProsentase();
 			indukAwalKonstruksiProsentase.setId(resultSet.getString("id"));
@@ -40,17 +40,17 @@ public class IndukAwalKonstruksiProsentaseDaoImpl implements
 			indukAwalKonstruksiProsentase.setPeriode(resultSet
 					.getString("periode"));
 			indukAwalKonstruksiProsentase.setRkpAwal(resultSet
-					.getInt("rkp_awal"));
+					.getDouble("rkp_awal"));
 			indukAwalKonstruksiProsentase.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			indukAwalKonstruksiProsentase.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			indukAwalKonstruksiProsentase.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			indukAwalKonstruksiProsentase.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
+					.getDouble("realisasi_sampai_bulan_ini"));
 			indukAwalKonstruksiProsentase.setProyeksi(resultSet
-					.getInt("proyeksi"));
+					.getDouble("proyeksi"));
 
 			return indukAwalKonstruksiProsentase;
 
@@ -63,31 +63,31 @@ public class IndukAwalKonstruksiProsentaseDaoImpl implements
 		String id = indukAwalKonstruksiProsentase.getId();
 		String namaProyek = indukAwalKonstruksiProsentase.getNamaProyek();
 		String periode = indukAwalKonstruksiProsentase.getPeriode();
-		Integer rkpAwal = indukAwalKonstruksiProsentase.getRkpAwal();
-		Integer rencanaSampaiBulanIni = indukAwalKonstruksiProsentase
+		Double rkpAwal = indukAwalKonstruksiProsentase.getRkpAwal();
+		Double rencanaSampaiBulanIni = indukAwalKonstruksiProsentase
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = indukAwalKonstruksiProsentase
+		Double realisasiSampaiBulanLalu = indukAwalKonstruksiProsentase
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = indukAwalKonstruksiProsentase
+		Double realisasiBulanIni = indukAwalKonstruksiProsentase
 				.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = indukAwalKonstruksiProsentase
+		Double realisasiSampaiBulanIni = indukAwalKonstruksiProsentase
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = indukAwalKonstruksiProsentase.getProyeksi();
+		Double proyeksi = indukAwalKonstruksiProsentase.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_induk_awal_konstruksi_prosentase (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

@@ -36,16 +36,16 @@ public class PphPenerimaanDaoImpl implements PphPenerimaanDao {
 			pphPenerimaan.setId(resultSet.getString("id"));
 			pphPenerimaan.setNamaProyek(resultSet.getString("nama_proyek"));
 			pphPenerimaan.setPeriode(resultSet.getString("periode"));
-			pphPenerimaan.setRkpAwal(resultSet.getInt("rkp_awal"));
+			pphPenerimaan.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			pphPenerimaan.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			pphPenerimaan.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			pphPenerimaan.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			pphPenerimaan.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			pphPenerimaan.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			pphPenerimaan.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return pphPenerimaan;
 
@@ -57,30 +57,29 @@ public class PphPenerimaanDaoImpl implements PphPenerimaanDao {
 		String id = pphPenerimaan.getId();
 		String namaProyek = pphPenerimaan.getNamaProyek();
 		String periode = pphPenerimaan.getPeriode();
-		Integer rkpAwal = pphPenerimaan.getRkpAwal();
-		Integer rencanaSampaiBulanIni = pphPenerimaan
-				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = pphPenerimaan
+		Double rkpAwal = pphPenerimaan.getRkpAwal();
+		Double rencanaSampaiBulanIni = pphPenerimaan.getRencanaSampaiBulanIni();
+		Double realisasiSampaiBulanLalu = pphPenerimaan
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = pphPenerimaan.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = pphPenerimaan
+		Double realisasiBulanIni = pphPenerimaan.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = pphPenerimaan
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = pphPenerimaan.getProyeksi();
+		Double proyeksi = pphPenerimaan.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_pph_penerimaan (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

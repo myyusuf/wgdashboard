@@ -36,16 +36,16 @@ public class BungaJasaGiroDaoImpl implements BungaJasaGiroDao {
 			bungaJasaGiro.setId(resultSet.getString("id"));
 			bungaJasaGiro.setNamaProyek(resultSet.getString("nama_proyek"));
 			bungaJasaGiro.setPeriode(resultSet.getString("periode"));
-			bungaJasaGiro.setRkpAwal(resultSet.getInt("rkp_awal"));
+			bungaJasaGiro.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			bungaJasaGiro.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			bungaJasaGiro.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			bungaJasaGiro.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			bungaJasaGiro.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			bungaJasaGiro.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			bungaJasaGiro.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return bungaJasaGiro;
 
@@ -57,30 +57,29 @@ public class BungaJasaGiroDaoImpl implements BungaJasaGiroDao {
 		String id = bungaJasaGiro.getId();
 		String namaProyek = bungaJasaGiro.getNamaProyek();
 		String periode = bungaJasaGiro.getPeriode();
-		Integer rkpAwal = bungaJasaGiro.getRkpAwal();
-		Integer rencanaSampaiBulanIni = bungaJasaGiro
-				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = bungaJasaGiro
+		Double rkpAwal = bungaJasaGiro.getRkpAwal();
+		Double rencanaSampaiBulanIni = bungaJasaGiro.getRencanaSampaiBulanIni();
+		Double realisasiSampaiBulanLalu = bungaJasaGiro
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = bungaJasaGiro.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = bungaJasaGiro
+		Double realisasiBulanIni = bungaJasaGiro.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = bungaJasaGiro
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = bungaJasaGiro.getProyeksi();
+		Double proyeksi = bungaJasaGiro.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_bunga_jasa_giro (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

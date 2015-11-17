@@ -36,16 +36,16 @@ public class ProsentaseLkDaoImpl implements ProsentaseLkDao {
 			prosentaseLk.setId(resultSet.getString("id"));
 			prosentaseLk.setNamaProyek(resultSet.getString("nama_proyek"));
 			prosentaseLk.setPeriode(resultSet.getString("periode"));
-			prosentaseLk.setRkpAwal(resultSet.getInt("rkp_awal"));
+			prosentaseLk.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			prosentaseLk.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			prosentaseLk.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			prosentaseLk.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			prosentaseLk.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			prosentaseLk.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			prosentaseLk.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return prosentaseLk;
 
@@ -57,29 +57,29 @@ public class ProsentaseLkDaoImpl implements ProsentaseLkDao {
 		String id = prosentaseLk.getId();
 		String namaProyek = prosentaseLk.getNamaProyek();
 		String periode = prosentaseLk.getPeriode();
-		Integer rkpAwal = prosentaseLk.getRkpAwal();
-		Integer rencanaSampaiBulanIni = prosentaseLk.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = prosentaseLk
+		Double rkpAwal = prosentaseLk.getRkpAwal();
+		Double rencanaSampaiBulanIni = prosentaseLk.getRencanaSampaiBulanIni();
+		Double realisasiSampaiBulanLalu = prosentaseLk
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = prosentaseLk.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = prosentaseLk
+		Double realisasiBulanIni = prosentaseLk.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = prosentaseLk
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = prosentaseLk.getProyeksi();
+		Double proyeksi = prosentaseLk.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_prosentase_lk (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "

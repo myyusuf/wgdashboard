@@ -39,17 +39,18 @@ public class ProsentaseTerhadapProduksiDaoImpl implements
 					.getString("nama_proyek"));
 			prosentaseTerhadapProduksi.setPeriode(resultSet
 					.getString("periode"));
-			prosentaseTerhadapProduksi.setRkpAwal(resultSet.getInt("rkp_awal"));
+			prosentaseTerhadapProduksi.setRkpAwal(resultSet
+					.getDouble("rkp_awal"));
 			prosentaseTerhadapProduksi.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			prosentaseTerhadapProduksi.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			prosentaseTerhadapProduksi.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			prosentaseTerhadapProduksi.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			prosentaseTerhadapProduksi
-					.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			prosentaseTerhadapProduksi.setProyeksi(resultSet
+					.getDouble("proyeksi"));
 
 			return prosentaseTerhadapProduksi;
 
@@ -62,31 +63,31 @@ public class ProsentaseTerhadapProduksiDaoImpl implements
 		String id = prosentaseTerhadapProduksi.getId();
 		String namaProyek = prosentaseTerhadapProduksi.getNamaProyek();
 		String periode = prosentaseTerhadapProduksi.getPeriode();
-		Integer rkpAwal = prosentaseTerhadapProduksi.getRkpAwal();
-		Integer rencanaSampaiBulanIni = prosentaseTerhadapProduksi
+		Double rkpAwal = prosentaseTerhadapProduksi.getRkpAwal();
+		Double rencanaSampaiBulanIni = prosentaseTerhadapProduksi
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = prosentaseTerhadapProduksi
+		Double realisasiSampaiBulanLalu = prosentaseTerhadapProduksi
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = prosentaseTerhadapProduksi
+		Double realisasiBulanIni = prosentaseTerhadapProduksi
 				.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = prosentaseTerhadapProduksi
+		Double realisasiSampaiBulanIni = prosentaseTerhadapProduksi
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = prosentaseTerhadapProduksi.getProyeksi();
+		Double proyeksi = prosentaseTerhadapProduksi.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_prosentase_terhadap_produksi (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
@@ -116,7 +117,8 @@ public class ProsentaseTerhadapProduksiDaoImpl implements
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
+					mapSqlParameterSource,
+					PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
 			LOGGER.error("Error getting data from database on getAllProsentaseTerhadapProduksi : "
 					+ e);
@@ -142,7 +144,8 @@ public class ProsentaseTerhadapProduksiDaoImpl implements
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
+					mapSqlParameterSource,
+					PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
 			LOGGER.error("Error getting data from database on getProsentaseTerhadapProduksiByNamaProyekAndPeriode : "
 					+ e);
@@ -166,7 +169,8 @@ public class ProsentaseTerhadapProduksiDaoImpl implements
 
 		try {
 			resultList = namedParameterJdbcTemplate.query(sql,
-					mapSqlParameterSource, PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
+					mapSqlParameterSource,
+					PROSENTASE_TERHADAP_PRODUKSI_ROW_MAPPER);
 		} catch (DataAccessException e) {
 			LOGGER.error("Error getting data from database on getProsentaseTerhadapProduksiByPeriode : "
 					+ e);

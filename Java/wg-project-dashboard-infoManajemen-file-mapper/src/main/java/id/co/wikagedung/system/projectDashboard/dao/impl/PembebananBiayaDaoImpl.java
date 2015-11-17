@@ -36,16 +36,16 @@ public class PembebananBiayaDaoImpl implements PembebananBiayaDao {
 			pembebananBiaya.setId(resultSet.getString("id"));
 			pembebananBiaya.setNamaProyek(resultSet.getString("nama_proyek"));
 			pembebananBiaya.setPeriode(resultSet.getString("periode"));
-			pembebananBiaya.setRkpAwal(resultSet.getInt("rkp_awal"));
+			pembebananBiaya.setRkpAwal(resultSet.getDouble("rkp_awal"));
 			pembebananBiaya.setRencanaSampaiBulanIni(resultSet
-					.getInt("rencana_sampai_bulan_ini"));
+					.getDouble("rencana_sampai_bulan_ini"));
 			pembebananBiaya.setRealisasiSampaiBulanLalu(resultSet
-					.getInt("realisasi_sampai_bulan_lalu"));
+					.getDouble("realisasi_sampai_bulan_lalu"));
 			pembebananBiaya.setRealisasiBulanIni(resultSet
-					.getInt("realisasi_bulan_ini"));
+					.getDouble("realisasi_bulan_ini"));
 			pembebananBiaya.setRealisasiSampaiBulanIni(resultSet
-					.getInt("realisasi_sampai_bulan_ini"));
-			pembebananBiaya.setProyeksi(resultSet.getInt("proyeksi"));
+					.getDouble("realisasi_sampai_bulan_ini"));
+			pembebananBiaya.setProyeksi(resultSet.getDouble("proyeksi"));
 
 			return pembebananBiaya;
 
@@ -57,30 +57,30 @@ public class PembebananBiayaDaoImpl implements PembebananBiayaDao {
 		String id = pembebananBiaya.getId();
 		String namaProyek = pembebananBiaya.getNamaProyek();
 		String periode = pembebananBiaya.getPeriode();
-		Integer rkpAwal = pembebananBiaya.getRkpAwal();
-		Integer rencanaSampaiBulanIni = pembebananBiaya
+		Double rkpAwal = pembebananBiaya.getRkpAwal();
+		Double rencanaSampaiBulanIni = pembebananBiaya
 				.getRencanaSampaiBulanIni();
-		Integer realisasiSampaiBulanLalu = pembebananBiaya
+		Double realisasiSampaiBulanLalu = pembebananBiaya
 				.getRealisasiSampaiBulanLalu();
-		Integer realisasiBulanIni = pembebananBiaya.getRealisasiBulanIni();
-		Integer realisasiSampaiBulanIni = pembebananBiaya
+		Double realisasiBulanIni = pembebananBiaya.getRealisasiBulanIni();
+		Double realisasiSampaiBulanIni = pembebananBiaya
 				.getRealisasiSampaiBulanIni();
-		Integer proyeksi = pembebananBiaya.getProyeksi();
+		Double proyeksi = pembebananBiaya.getProyeksi();
 
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 		mapSqlParameterSource.addValue("id", id, Types.VARCHAR);
 		mapSqlParameterSource.addValue("namaProyek", namaProyek, Types.VARCHAR);
 		mapSqlParameterSource.addValue("periode", periode, Types.VARCHAR);
-		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.INTEGER);
+		mapSqlParameterSource.addValue("rkpAwal", rkpAwal, Types.DOUBLE);
 		mapSqlParameterSource.addValue("rencanaSampaiBulanIni",
-				rencanaSampaiBulanIni, Types.INTEGER);
+				rencanaSampaiBulanIni, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanLalu",
-				realisasiSampaiBulanLalu, Types.INTEGER);
+				realisasiSampaiBulanLalu, Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiBulanIni", realisasiBulanIni,
-				Types.INTEGER);
+				Types.DOUBLE);
 		mapSqlParameterSource.addValue("realisasiSampaiBulanIni",
-				realisasiSampaiBulanIni, Types.INTEGER);
-		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.INTEGER);
+				realisasiSampaiBulanIni, Types.DOUBLE);
+		mapSqlParameterSource.addValue("proyeksi", proyeksi, Types.DOUBLE);
 
 		String sql = "INSERT INTO wg_informasi_manajemen_pembebanan_biaya (id, nama_proyek, "
 				+ "periode, nama_proyek, rkp_awal, rencana_sampai_bulan_ini, "
