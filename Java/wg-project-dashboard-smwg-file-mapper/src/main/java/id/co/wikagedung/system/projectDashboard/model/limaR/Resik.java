@@ -5,16 +5,18 @@ public class Resik {
 	private ResikKantorDanSekitarnya resikKantorDanSekitarnya;
 	private ResikKriteriaStandar resikKriteriaStandar;
 	private ResikKriteriaTambahan resikKriteriaTambahan;
+	private Double subTotal;
 
 	public Resik() {
 	}
 
 	public Resik(ResikKantorDanSekitarnya resikKantorDanSekitarnya,
 			ResikKriteriaStandar resikKriteriaStandar,
-			ResikKriteriaTambahan resikKriteriaTambahan) {
+			ResikKriteriaTambahan resikKriteriaTambahan, Double subTotal) {
 		this.resikKantorDanSekitarnya = resikKantorDanSekitarnya;
 		this.resikKriteriaStandar = resikKriteriaStandar;
 		this.resikKriteriaTambahan = resikKriteriaTambahan;
+		this.subTotal = subTotal;
 	}
 
 	public ResikKantorDanSekitarnya getResikKantorDanSekitarnya() {
@@ -44,11 +46,20 @@ public class Resik {
 		this.resikKriteriaTambahan = resikKriteriaTambahan;
 	}
 
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "Resik [resikKantorDanSekitarnya=" + resikKantorDanSekitarnya
 				+ ", resikKriteriaStandar=" + resikKriteriaStandar
-				+ ", resikKriteriaTambahan=" + resikKriteriaTambahan + "]";
+				+ ", resikKriteriaTambahan=" + resikKriteriaTambahan
+				+ ", subTotal=" + subTotal + "]";
 	}
 
 }

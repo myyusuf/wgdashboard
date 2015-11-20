@@ -5,16 +5,18 @@ public class Rapi {
 	private RapiKantorDanSekitarnya rapiKantorDanSekitarnya;
 	private RapiKriteriaStandar rapiKriteriaStandar;
 	private RapiKriteriaTambahan rapiKriteriaTambahan;
+	private Double subTotal;
 
 	public Rapi() {
 	}
 
 	public Rapi(RapiKantorDanSekitarnya rapiKantorDanSekitarnya,
 			RapiKriteriaStandar rapiKriteriaStandar,
-			RapiKriteriaTambahan rapiKriteriaTambahan) {
+			RapiKriteriaTambahan rapiKriteriaTambahan, Double subTotal) {
 		this.rapiKantorDanSekitarnya = rapiKantorDanSekitarnya;
 		this.rapiKriteriaStandar = rapiKriteriaStandar;
 		this.rapiKriteriaTambahan = rapiKriteriaTambahan;
+		this.subTotal = subTotal;
 	}
 
 	public RapiKantorDanSekitarnya getRapiKantorDanSekitarnya() {
@@ -43,11 +45,20 @@ public class Rapi {
 		this.rapiKriteriaTambahan = rapiKriteriaTambahan;
 	}
 
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "Rapi [rapiKantorDanSekitarnya=" + rapiKantorDanSekitarnya
 				+ ", rapiKriteriaStandar=" + rapiKriteriaStandar
-				+ ", rapiKriteriaTambahan=" + rapiKriteriaTambahan + "]";
+				+ ", rapiKriteriaTambahan=" + rapiKriteriaTambahan
+				+ ", subTotal=" + subTotal + "]";
 	}
 
 }

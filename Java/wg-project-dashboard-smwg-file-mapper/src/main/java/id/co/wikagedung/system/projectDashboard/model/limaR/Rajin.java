@@ -5,16 +5,18 @@ public class Rajin {
 	private RajinKantorDanSekitarnya rajinKantorDanSekitarnya;
 	private RajinKriteriaStandar rajinKriteriaStandar;
 	private RajinKriteriaTambahan rajinKriteriaTambahan;
+	private Double subTotal;
 
 	public Rajin() {
 	}
 
 	public Rajin(RajinKantorDanSekitarnya rajinKantorDanSekitarnya,
 			RajinKriteriaStandar rajinKriteriaStandar,
-			RajinKriteriaTambahan rajinKriteriaTambahan) {
+			RajinKriteriaTambahan rajinKriteriaTambahan, Double subTotal) {
 		this.rajinKantorDanSekitarnya = rajinKantorDanSekitarnya;
 		this.rajinKriteriaStandar = rajinKriteriaStandar;
 		this.rajinKriteriaTambahan = rajinKriteriaTambahan;
+		this.subTotal = subTotal;
 	}
 
 	public RajinKantorDanSekitarnya getRajinKantorDanSekitarnya() {
@@ -44,11 +46,20 @@ public class Rajin {
 		this.rajinKriteriaTambahan = rajinKriteriaTambahan;
 	}
 
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "Rajin [rajinKantorDanSekitarnya=" + rajinKantorDanSekitarnya
 				+ ", rajinKriteriaStandar=" + rajinKriteriaStandar
-				+ ", rajinKriteriaTambahan=" + rajinKriteriaTambahan + "]";
+				+ ", rajinKriteriaTambahan=" + rajinKriteriaTambahan
+				+ ", subTotal=" + subTotal + "]";
 	}
 
 }

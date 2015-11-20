@@ -5,16 +5,18 @@ public class Ringkas {
 	private RingkasKantorDanSekitarnya ringkasKantorDanSekitarnya;
 	private RingkasKriteriaStandar ringkasKriteriaStandar;
 	private RingkasKriteriaTambahan ringkasKriteriaTambahan;
+	private Double subTotal;
 
 	public Ringkas() {
 	}
 
 	public Ringkas(RingkasKantorDanSekitarnya ringkasKantorDanSekitarnya,
 			RingkasKriteriaStandar ringkasKriteriaStandar,
-			RingkasKriteriaTambahan ringkasKriteriaTambahan) {
+			RingkasKriteriaTambahan ringkasKriteriaTambahan, Double subTotal) {
 		this.ringkasKantorDanSekitarnya = ringkasKantorDanSekitarnya;
 		this.ringkasKriteriaStandar = ringkasKriteriaStandar;
 		this.ringkasKriteriaTambahan = ringkasKriteriaTambahan;
+		this.subTotal = subTotal;
 	}
 
 	public RingkasKantorDanSekitarnya getRingkasKantorDanSekitarnya() {
@@ -44,12 +46,20 @@ public class Ringkas {
 		this.ringkasKriteriaTambahan = ringkasKriteriaTambahan;
 	}
 
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "Ringkas [ringkasKantorDanSekitarnya="
 				+ ringkasKantorDanSekitarnya + ", ringkasKriteriaStandar="
 				+ ringkasKriteriaStandar + ", ringkasKriteriaTambahan="
-				+ ringkasKriteriaTambahan + "]";
+				+ ringkasKriteriaTambahan + ", subTotal=" + subTotal + "]";
 	}
 
 }

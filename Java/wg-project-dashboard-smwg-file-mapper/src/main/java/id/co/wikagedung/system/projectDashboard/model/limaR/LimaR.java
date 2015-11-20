@@ -7,17 +7,19 @@ public class LimaR {
 	private Resik resik;
 	private Rawat rawat;
 	private Rajin rajin;
+	private Double total;
 
 	public LimaR() {
 	}
 
 	public LimaR(Ringkas ringkas, Rapi rapi, Resik resik, Rawat rawat,
-			Rajin rajin) {
+			Rajin rajin, Double total) {
 		this.ringkas = ringkas;
 		this.rapi = rapi;
 		this.resik = resik;
 		this.rawat = rawat;
 		this.rajin = rajin;
+		this.total = total;
 	}
 
 	public Ringkas getRingkas() {
@@ -60,10 +62,19 @@ public class LimaR {
 		this.rajin = rajin;
 	}
 
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
 	@Override
 	public String toString() {
 		return "LimaR [ringkas=" + ringkas + ", rapi=" + rapi + ", resik="
-				+ resik + ", rawat=" + rawat + ", rajin=" + rajin + "]";
+				+ resik + ", rawat=" + rawat + ", rajin=" + rajin + ", total="
+				+ total + "]";
 	}
 
 }

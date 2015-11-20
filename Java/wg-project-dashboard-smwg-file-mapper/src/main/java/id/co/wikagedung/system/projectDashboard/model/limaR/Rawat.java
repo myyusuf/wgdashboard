@@ -5,16 +5,18 @@ public class Rawat {
 	private RawatKantorDanSekitarnya rawatKantorDanSekitarnya;
 	private RawatKriteriaStandar rawatKriteriaStandar;
 	private RawatKriteriaTambahan rawatKriteriaTambahan;
+	private Double subTotal;
 
 	public Rawat() {
 	}
 
 	public Rawat(RawatKantorDanSekitarnya rawatKantorDanSekitarnya,
 			RawatKriteriaStandar rawatKriteriaStandar,
-			RawatKriteriaTambahan rawatKriteriaTambahan) {
+			RawatKriteriaTambahan rawatKriteriaTambahan, Double subTotal) {
 		this.rawatKantorDanSekitarnya = rawatKantorDanSekitarnya;
 		this.rawatKriteriaStandar = rawatKriteriaStandar;
 		this.rawatKriteriaTambahan = rawatKriteriaTambahan;
+		this.subTotal = subTotal;
 	}
 
 	public RawatKantorDanSekitarnya getRawatKantorDanSekitarnya() {
@@ -44,11 +46,20 @@ public class Rawat {
 		this.rawatKriteriaTambahan = rawatKriteriaTambahan;
 	}
 
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "Rawat [rawatKantorDanSekitarnya=" + rawatKantorDanSekitarnya
 				+ ", rawatKriteriaStandar=" + rawatKriteriaStandar
-				+ ", rawatKriteriaTambahan=" + rawatKriteriaTambahan + "]";
+				+ ", rawatKriteriaTambahan=" + rawatKriteriaTambahan
+				+ ", subTotal=" + subTotal + "]";
 	}
 
 }
