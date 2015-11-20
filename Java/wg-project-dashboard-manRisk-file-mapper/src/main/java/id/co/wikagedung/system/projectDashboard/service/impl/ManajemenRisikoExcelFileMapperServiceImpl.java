@@ -3,9 +3,7 @@ package id.co.wikagedung.system.projectDashboard.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -46,8 +44,6 @@ public class ManajemenRisikoExcelFileMapperServiceImpl implements
 
 		ArrayList<ManajemenRisiko> manajemenRisikoList = new ArrayList<ManajemenRisiko>();
 
-		Map<Integer, ManajemenRisiko> manajemenRisikoMap = new HashMap<Integer, ManajemenRisiko>();
-
 		for (int i = 0; i < filenames.size(); i++) {
 
 			String filePath = filenames.get(i);
@@ -67,9 +63,9 @@ public class ManajemenRisikoExcelFileMapperServiceImpl implements
 				XSSFSheet sheet = workbook
 						.getSheet(CommonConstant.WG_MANAJEMEN_RISIKO_SHEET_CONSTANT);
 
-				ManajemenRisiko manajemenRisiko = new ManajemenRisiko();
-
 				for (int row = 0; row < sheet.getLastRowNum(); row++) {
+
+					ManajemenRisiko manajemenRisiko = new ManajemenRisiko();
 
 					XSSFRow rows = sheet.getRow(row);
 
@@ -200,39 +196,6 @@ public class ManajemenRisikoExcelFileMapperServiceImpl implements
 
 											}
 
-											if ((manajemenRisiko.getRisiko() != null)
-													&& (manajemenRisiko
-															.getStlTingkatRisiko() != null)
-													&& (manajemenRisiko
-															.getStlNilaiRisiko() != null)
-													&& (manajemenRisiko
-															.getRtlRencanaTindakLanjut() != null)
-													&& (manajemenRisiko
-															.getRtlTingkatRisiko() != null)
-													&& (manajemenRisiko
-															.getRtlRencanaBiayaMitigasiRisiko() != null)
-													&& (manajemenRisiko
-															.getRtlRencanaSisaRisiko() != null)
-													&& (manajemenRisiko
-															.getRtlTotalRencanaNilaiRisiko() != null)
-													&& (manajemenRisiko
-															.getHtlRealisasiTindakLanjutSampaiSaatIni() != null)
-													&& (manajemenRisiko
-															.getHtlStatus() != null)
-													&& (manajemenRisiko
-															.getHtlPenanggungJawab() != null)
-													&& (manajemenRisiko
-															.getHtlBiayaMitigasi() != null)
-													&& (manajemenRisiko
-															.getHtlRealisasiSisaRisiko() != null)
-													&& (manajemenRisiko
-															.getHtlTotalRealisasiNilaiRisiko() != null)) {
-
-												manajemenRisikoList
-														.add(manajemenRisiko);
-
-											}
-
 										}
 
 									}
@@ -242,6 +205,28 @@ public class ManajemenRisikoExcelFileMapperServiceImpl implements
 							}
 
 						}
+
+					}
+
+					if ((manajemenRisiko.getRisiko() != null)
+							&& (manajemenRisiko.getStlTingkatRisiko() != null)
+							&& (manajemenRisiko.getStlNilaiRisiko() != null)
+							&& (manajemenRisiko.getRtlRencanaTindakLanjut() != null)
+							&& (manajemenRisiko.getRtlTingkatRisiko() != null)
+							&& (manajemenRisiko
+									.getRtlRencanaBiayaMitigasiRisiko() != null)
+							&& (manajemenRisiko.getRtlRencanaSisaRisiko() != null)
+							&& (manajemenRisiko.getRtlTotalRencanaNilaiRisiko() != null)
+							&& (manajemenRisiko
+									.getHtlRealisasiTindakLanjutSampaiSaatIni() != null)
+							&& (manajemenRisiko.getHtlStatus() != null)
+							&& (manajemenRisiko.getHtlPenanggungJawab() != null)
+							&& (manajemenRisiko.getHtlBiayaMitigasi() != null)
+							&& (manajemenRisiko.getHtlRealisasiSisaRisiko() != null)
+							&& (manajemenRisiko
+									.getHtlTotalRealisasiNilaiRisiko() != null)) {
+
+						manajemenRisikoList.add(manajemenRisiko);
 
 					}
 
