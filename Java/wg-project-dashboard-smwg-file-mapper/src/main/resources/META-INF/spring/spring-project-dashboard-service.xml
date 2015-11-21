@@ -35,9 +35,7 @@
 		<constructor-arg type="java.lang.String" value="${file.path.name}" />
 	</bean>
 
-	<bean id="qPassExcelFileMapperServiceImpl"
-		class="id.co.wikagedung.system.projectDashboard.service.impl.QPassExcelFileMapperServiceImpl">
-		<constructor-arg type="java.lang.String" value="${file.path.name}" />
-	</bean>
+	<!-- <bean id="qPassExcelFileMapperServiceImpl" class="id.co.wikagedung.system.projectDashboard.service.impl.QPassExcelFileMapperServiceImpl"> 
+		<constructor-arg type="java.lang.String" value="${file.path.name}" /> </bean> -->
 
 </beans>
