@@ -1750,14 +1750,6 @@ public class InformasiManajemenExcelFileMapperServiceImpl implements
 
 				informasiManajemenList.add(informasiManajemen);
 
-				File renameFile = new File(pathName + "(READ) "
-						+ file.getName());
-
-				file.renameTo(renameFile);
-
-				LOGGER.info("Rename file " + pathName + file.getName() + " to "
-						+ pathName + "(READ) " + file.getName());
-
 			}
 
 		}
