@@ -1,7 +1,7 @@
 package id.co.wikagedung.system.projectDashboard.test;
 
-import id.co.wikagedung.system.projectDashboard.model.MasalahPotensial;
-import id.co.wikagedung.system.projectDashboard.service.MasalahPotensialExcelFileMapperService;
+import id.co.wikagedung.system.projectDashboard.model.PosisiPegawai;
+import id.co.wikagedung.system.projectDashboard.service.PosisiPegawaiExcelFileMapperService;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,22 +15,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:META-INF/spring/spring-ctx.xml" })
-public class MasalahPotensialExcelFileMapperServiceTest {
+public class PosisiPegawaiExcelFileMapperServiceTest {
 
 	@Autowired
-	private MasalahPotensialExcelFileMapperService masalahPotensialExcelFileMapperService;
+	private PosisiPegawaiExcelFileMapperService posisiPegawaiExcelFileMapperService;
 
 	@Test
-	public void posisiPegawaiExcelFileMapping() throws IOException,
+	public void posisiPegawaiFileMapping() throws IOException,
 			InvalidFormatException {
 
-		List<MasalahPotensial> result = masalahPotensialExcelFileMapperService
-				.masalahPotensialExcelFileMapping();
+		List<PosisiPegawai> result = posisiPegawaiExcelFileMapperService
+				.posisiPegawaiExcelFileMapping();
 
-		for (MasalahPotensial masalahPotensial : result) {
+		for (PosisiPegawai posisiPegawai : result) {
 
-			System.out.println("Masalah Potensial : "
-					+ masalahPotensial.toString());
+			System.out.println("Posisi Pegawai : " + posisiPegawai.toString());
 
 		}
 
