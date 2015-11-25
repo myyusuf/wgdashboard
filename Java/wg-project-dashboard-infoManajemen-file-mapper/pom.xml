@@ -126,7 +126,6 @@
 			<artifactId>xmlbeans</artifactId>
 			<version>${xml.beans.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
