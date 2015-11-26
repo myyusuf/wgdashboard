@@ -1,7 +1,7 @@
 package id.co.wikagedung.system.projectDashboard.test;
 
-import id.co.wikagedung.system.projectDashboard.model.MasalahPotensial;
-import id.co.wikagedung.system.projectDashboard.service.MasalahPotensialExcelFileMapperService;
+import id.co.wikagedung.system.projectDashboard.model.Pdp;
+import id.co.wikagedung.system.projectDashboard.service.PdpExcelFileMapperService;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,22 +15,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:META-INF/spring/spring-ctx.xml" })
-public class MasalahPotensialExcelFileMapperServiceTest {
+public class PdpExcelFileMapperServiceTest {
 
 	@Autowired
-	private MasalahPotensialExcelFileMapperService masalahPotensialExcelFileMapperService;
+	private PdpExcelFileMapperService pdpExcelFileMapperService;
 
 	@Test
-	public void masalahPotensialExcelFileMapping() throws IOException,
+	public void pdpExcelFileMapping() throws IOException,
 			InvalidFormatException {
 
-		List<MasalahPotensial> result = masalahPotensialExcelFileMapperService
-				.masalahPotensialExcelFileMapping();
+		List<Pdp> result = pdpExcelFileMapperService.pdpExcelFileMapping();
 
-		for (MasalahPotensial masalahPotensial : result) {
+		for (Pdp pdp : result) {
 
-			System.out.println("Masalah Potensial : "
-					+ masalahPotensial.toString());
+			System.out.println("PDP : " + pdp.toString());
 
 		}
 
