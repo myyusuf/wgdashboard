@@ -63,6 +63,8 @@ public class PosisiKeuanganExcelFileMapperServiceImpl implements
 				XSSFSheet sheet = workbook
 						.getSheet(CommonConstant.WG_POSISI_KEUANGAN_SHEET_CONSTANT);
 
+				PosisiKeuangan posisiKeuangan = new PosisiKeuangan();
+
 				for (int row = 0; row < sheet.getLastRowNum(); row++) {
 
 					XSSFRow rows = sheet.getRow(row);
@@ -78,6 +80,342 @@ public class PosisiKeuanganExcelFileMapperServiceImpl implements
 								if ((cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC)
 										|| cell.getCellType() == XSSFCell.CELL_TYPE_FORMULA) {
 
+									if (row == 5) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setUangMukaInduk(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 6) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setTermijn(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 8) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setUangMukaVo(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 9) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setTermijnVo(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 15) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPotonganRetensi(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 16) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPotonganUangMuka(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 17) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setPotonganPpn(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 18) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPotonganPphTermijn(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 23) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setPersekot(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 24) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setDropping(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 25) {
+
+										if (column == 6) {
+
+											posisiKeuangan.setPembebananRk(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 32) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPekerjaanInduk(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 33) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPekerjaanVoClaim(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 39) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPrestasiEksternPekerjaanInduk(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 40) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setPrestasiEksternPekerjaanVo(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 44) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setBiayaLangsung(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 45) {
+
+										if (column == 6) {
+
+											posisiKeuangan
+													.setBiayaTakLangsung(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 49) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setUangMukaPemasok(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 50) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setUangMukaSubkontraktor(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 51) {
+
+										if (column == 8) {
+
+											posisiKeuangan.setUtangPemasok(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 52) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setUtangSubkontraktor(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 53) {
+
+										if (column == 8) {
+
+											posisiKeuangan.setUtangMandor(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 54) {
+
+										if (column == 8) {
+
+											posisiKeuangan.setPersediaan(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 55) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setBiayaAkanDibayar(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 56) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setPiutangFaktur(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 58) {
+
+										if (column == 8) {
+
+											posisiKeuangan.setPdpkMaterial(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 59) {
+
+										if (column == 8) {
+
+											posisiKeuangan.setPdpkUpah(cell
+													.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 60) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setPdpkPeralatan(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 61) {
+
+										if (column == 8) {
+
+											posisiKeuangan
+													.setPdpkSubkontraktor(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
 								}
 
 							}
@@ -87,6 +425,8 @@ public class PosisiKeuanganExcelFileMapperServiceImpl implements
 					}
 
 				}
+
+				posisiKeuanganList.add(posisiKeuangan);
 
 			}
 
