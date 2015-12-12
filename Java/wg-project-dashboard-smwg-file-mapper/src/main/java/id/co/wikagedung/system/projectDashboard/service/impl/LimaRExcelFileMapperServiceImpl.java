@@ -516,6 +516,30 @@ public class LimaRExcelFileMapperServiceImpl implements
 
 									}
 
+									if (row == 70) {
+
+										if (column == 4) {
+
+											resikKantorDanSekitarnya
+													.setMusholla(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
+									if (row == 71) {
+
+										if (column == 4) {
+
+											resikKantorDanSekitarnya
+													.setToilet(cell
+															.getNumericCellValue());
+
+										}
+
+									}
+
 									if (row == 73) {
 
 										resikKriteriaStandar

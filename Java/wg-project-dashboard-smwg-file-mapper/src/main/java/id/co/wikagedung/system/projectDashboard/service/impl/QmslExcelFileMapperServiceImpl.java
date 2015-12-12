@@ -184,7 +184,7 @@ public class QmslExcelFileMapperServiceImpl implements
 										if (column == 7) {
 
 											manajerKepalaProyek
-													.setResultMutu(cell
+													.setResultBiaya(cell
 															.getNumericCellValue());
 
 										}
@@ -499,9 +499,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setPenerimaanDanPenangananMaterial(cell
+													.getNumericCellValue());
 
 										}
 
@@ -511,9 +510,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setGudang(cell
+													.getNumericCellValue());
 
 										}
 
@@ -523,9 +521,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setKeuangan(cell
+													.getNumericCellValue());
 
 										}
 
@@ -535,9 +532,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setAkuntansi(cell
+													.getNumericCellValue());
 
 										}
 
@@ -547,9 +543,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setPelatihanDanKompetensi(cell
+													.getNumericCellValue());
 
 										}
 
@@ -559,9 +554,8 @@ public class QmslExcelFileMapperServiceImpl implements
 
 										if (column == 7) {
 
-											fungsiPengadaan
-													.setPemeliharaanAlat(cell
-															.getNumericCellValue());
+											fungsiKa.setKepersonaliaan(cell
+													.getNumericCellValue());
 
 										}
 
