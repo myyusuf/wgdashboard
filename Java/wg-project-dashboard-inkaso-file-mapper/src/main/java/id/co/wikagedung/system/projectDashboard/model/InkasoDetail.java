@@ -8,7 +8,7 @@ public class InkasoDetail {
 	private String uraian;
 	private Double prestasiBrutoPersentase;
 	private Double prestasiBrutoRupiah;
-	private Double angsuranTM;
+	private Double angsuranUM;
 	private Double retensi;
 	private Double kuitansiBruto;
 	private Double kuitansiNetto;
@@ -28,7 +28,7 @@ public class InkasoDetail {
 
 	public InkasoDetail(String keterangan, String uraian,
 			Double prestasiBrutoPersentase, Double prestasiBrutoRupiah,
-			Double angsuranTM, Double retensi, Double kuitansiBruto,
+			Double angsuranUM, Double retensi, Double kuitansiBruto,
 			Double kuitansiNetto, Double kuitansiPpn, Double potonganPphFinal,
 			Double penerimaanBersih, Double pembayaran,
 			Double tagihanBelumCair, Date monitorWaktuTanggalMasuk,
@@ -39,7 +39,7 @@ public class InkasoDetail {
 		this.uraian = uraian;
 		this.prestasiBrutoPersentase = prestasiBrutoPersentase;
 		this.prestasiBrutoRupiah = prestasiBrutoRupiah;
-		this.angsuranTM = angsuranTM;
+		this.angsuranUM = angsuranUM;
 		this.retensi = retensi;
 		this.kuitansiBruto = kuitansiBruto;
 		this.kuitansiNetto = kuitansiNetto;
@@ -86,12 +86,12 @@ public class InkasoDetail {
 		this.prestasiBrutoRupiah = prestasiBrutoRupiah;
 	}
 
-	public Double getAngsuranTM() {
-		return angsuranTM;
+	public Double getAngsuranUM() {
+		return angsuranUM;
 	}
 
-	public void setAngsuranTM(Double angsuranTM) {
-		this.angsuranTM = angsuranTM;
+	public void setAngsuranUM(Double angsuranUM) {
+		this.angsuranUM = angsuranUM;
 	}
 
 	public Double getRetensi() {
@@ -196,7 +196,7 @@ public class InkasoDetail {
 		return "InkasoDetail [keterangan=" + keterangan + ", uraian=" + uraian
 				+ ", prestasiBrutoPersentase=" + prestasiBrutoPersentase
 				+ ", prestasiBrutoRupiah=" + prestasiBrutoRupiah
-				+ ", angsuranTM=" + angsuranTM + ", retensi=" + retensi
+				+ ", angsuranUM=" + angsuranUM + ", retensi=" + retensi
 				+ ", kuitansiBruto=" + kuitansiBruto + ", kuitansiNetto="
 				+ kuitansiNetto + ", kuitansiPpn=" + kuitansiPpn
 				+ ", potonganPphFinal=" + potonganPphFinal
