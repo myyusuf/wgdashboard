@@ -2,6 +2,7 @@ package id.co.wikagedung.system.projectDashboard.test;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import id.co.wikagedung.system.projectDashboard.model.MonitoringPenjualan;
 import id.co.wikagedung.system.projectDashboard.service.MonitoringPenjualanFileMapperService;
@@ -24,7 +25,18 @@ public class MonitoringPenjualanFileMapperServiceTest {
 	public void monitoringPenjualanExcelFileMapping() throws InvalidFormatException, IOException{
 		List<MonitoringPenjualan> result = monitoringPenjualanFileMapperService.monitoringPenjualanExcelFileMapping();
 		for(MonitoringPenjualan mp : result){
-			System.out.println("Monitoring Penjualan: " +mp.toString());
+			System.out.println("Id : " + UUID.randomUUID().toString());
+			System.out.println("Nama Proyek : " + "Proyek 1");
+			System.out.println("Periode : " + "Jan 2016");
+			System.out.println("No. Bukti Memorial : " + mp.getNoBuktiMemorial());
+			System.out.println("Bulan : " + mp.getBulan());
+			System.out.println("Prest Thd OK Akhir - Bulan : " + mp.getPrestThdOkAkhirBulan());
+			System.out.println("Prest Thd OK Akhir - Kumulatif : " + mp.getPrestThdOkAkhirKumulatif());
+			System.out.println("Produksi - Bulan : " + mp.getProduksiBulan());
+			System.out.println("Produksi - Kumulatif : " + mp.getProduksiKumulatif());
+			System.out.println("------------------------------");
+			
+			//System.out.println("Monitoring Penjualan: " +mp.toString());
 		}
 	}
 
