@@ -107,7 +107,7 @@ public class InkasoExcelFileMapperServiceImpl implements
 							inkasoDetail.setUraian(rows.getCell(2) == null? null : rows.getCell(2).getStringCellValue());
 							inkasoDetail.setPrestasiBrutoPersentase(rows.getCell(3) == null ? null :rows.getCell(3).getNumericCellValue());
 							inkasoDetail.setPrestasiBrutoRupiah(rows.getCell(4) == null? null : rows.getCell(4).getNumericCellValue());
-							inkasoDetail.setAngsuranTM(rows.getCell(5) == null? null: rows.getCell(5).getNumericCellValue());
+							inkasoDetail.setAngsuranUM(rows.getCell(5) == null? null: rows.getCell(5).getNumericCellValue());
 							inkasoDetail.setRetensi(rows.getCell(6) == null ? null : rows.getCell(6).getNumericCellValue());
 							bruto = rows.getCell(7) == null? null : rows.getCell(7).getNumericCellValue();
 							netto = bruto == null ? null : bruto /1.1;
