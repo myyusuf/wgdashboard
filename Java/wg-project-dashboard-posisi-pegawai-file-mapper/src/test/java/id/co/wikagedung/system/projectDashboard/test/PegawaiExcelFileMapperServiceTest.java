@@ -2,6 +2,7 @@ package id.co.wikagedung.system.projectDashboard.test;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import id.co.wikagedung.system.projectDashboard.model.Pegawai;
 import id.co.wikagedung.system.projectDashboard.service.PegawaiExcelFileMapperService;
@@ -27,7 +28,15 @@ public class PegawaiExcelFileMapperServiceTest {
 				.pegawaiExcelFileMapping();
 
 		for (Pegawai pegawai : result) {
-			System.out.println("Pegawai: " + pegawai.toString());
+			System.out.println("Id : " + UUID.randomUUID().toString());
+			System.out.println("Nama Proyek : " + "Proyek 1");
+			System.out.println("Periode : " + "Jan 2016");
+			System.out.println("Jabatan : " + pegawai.getJabatan() + " - " + pegawai.getSubJabatan());
+			System.out.println("Nama : " + pegawai.getNama());
+			System.out.println("NIP : " + pegawai.getNip());
+			System.out.println("Status Pendidikan : " + pegawai.getStatusPendidikan());
+			System.out.println("-------------------------");
+			//System.out.println("Pegawai: " + pegawai.toString());
 		}
 	}
 }
