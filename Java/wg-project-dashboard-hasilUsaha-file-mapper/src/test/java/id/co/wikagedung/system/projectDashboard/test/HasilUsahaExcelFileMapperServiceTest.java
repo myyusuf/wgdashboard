@@ -96,7 +96,7 @@ public class HasilUsahaExcelFileMapperServiceTest {
 
 	}
 
-	@Test
+	// @Test
 	public void hasilUsahaExcelFileMapping() throws InvalidFormatException,
 			IOException {
 
@@ -110,4 +110,53 @@ public class HasilUsahaExcelFileMapperServiceTest {
 		}
 
 	}
+
+	@Test
+	public void getDataProgressProyek() throws InvalidFormatException,
+			IOException {
+
+		List<HasilUsaha> hasilUsahaList = hasilUsahaExcelFileMapperService
+				.hasilUsahaExcelFileMapping();
+
+		Double selisihProgress = 0.0;
+		Double progressOpRencana = 0.0;
+		Double progressOpRealisasi = 0.0;
+
+		String progressProyek = null;
+
+		for (HasilUsaha hasilUsaha : hasilUsahaList) {
+
+			progressOpRencana = hasilUsaha.getOpRaProsentase();
+			progressOpRealisasi = hasilUsaha.getOpRiProsentase();
+
+			if (progressOpRealisasi >= progressOpRencana) {
+
+				selisihProgress = progressOpRealisasi - progressOpRencana;
+
+				progressProyek = "Tepat Waktu Atau Lebih Cepat";
+
+			} else {
+
+				selisihProgress = progressOpRencana - progressOpRealisasi;
+
+				if (selisihProgress <= 0.05) {
+
+					progressProyek = "Terlambat Kurang Dari 5%";
+
+				} else {
+
+					progressProyek = "Terlambat Lebih Dari 5%";
+
+				}
+
+			}
+
+		}
+
+		System.out.println("Progress Proyek : " + progressProyek);
+		System.out.println("Progress Proyek Lebih Cepat " + selisihProgress
+				* 100 + " %");
+
+	}
+
 }
